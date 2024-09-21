@@ -1,14 +1,14 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import * as globals from '../polis/client-participation/vis2/components/globals'
-import Curate from '../polis/client-participation/vis2/components/curate'
+import * as globals from '../../polis/client-participation/vis2/components/globals'
+import Curate from '../../polis/client-participation/vis2/components/curate'
 
-import participationData from '../.storybook/data/3ntrtcehas-participation-init.json'
+import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
 const pcaData = JSON.parse(participationData.pca)
 
 export default {
-  title: 'Visualization/Curate',
+  title: 'Client-Participation/Curate',
   component: Curate
 }
 

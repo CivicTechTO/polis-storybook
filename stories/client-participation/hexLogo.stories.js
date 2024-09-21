@@ -1,9 +1,9 @@
 import React from 'react'
 
-import HexLogo from '../polis/client-participation/vis2/components/hexLogo'
+import HexLogo from '../../polis/client-participation/vis2/components/hexLogo'
 
 export default {
-  title: 'Visualization/HexLogo',
+  title: 'Client-Participation/HexLogo',
   component: HexLogo,
 }
 

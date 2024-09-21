@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Gear from '../polis/client-participation/vis2/components/gear'
+import Gear from '../../polis/client-participation/vis2/components/gear'
 
 export default {
-  title: 'Visualization/Gear',
+  title: 'Client-Participation/Gear',
   component: Gear,
 }
 

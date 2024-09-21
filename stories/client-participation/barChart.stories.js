@@ -1,12 +1,12 @@
 import React from 'react'
 
-import BarChart from '../polis/client-participation/vis2/components/barChart'
+import BarChart from '../../polis/client-participation/vis2/components/barChart'
 
-import participationData from '../.storybook/data/3ntrtcehas-participation-init.json'
+import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
 const pcaData = JSON.parse(participationData.pca)
 
 export default {
-  title: 'Visualization/BarChart',
+  title: 'Client-Participation/BarChart',
   component: BarChart,
   decorators: [
     (Story) => (

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Header from '../polis/client-participation/vis2/components/header'
+import Header from '../../polis/client-participation/vis2/components/header'
 
 export default {
-  title: 'Visualization/Header',
+  title: 'Client-Participation/Header',
   component: Header,
 }
 
