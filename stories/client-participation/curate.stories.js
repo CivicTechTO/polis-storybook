@@ -1,6 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import * as globals from '../../polis/client-participation/vis2/components/globals'
+import Strings from '../../polis/client-participation/js/strings/en_us'
 import Curate from '../../polis/client-participation/vis2/components/curate'
 import { getMath } from '../../.storybook/utils'
 
@@ -15,10 +16,13 @@ const Template = (args) => <Curate {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  math: mathResults,
-  handleCurateButtonClick: action('Clicked'),
   selectedTidCuration: null,
-  Strings: {majorityOpinion: 'Majority Opinion', group_123: 'Group:'}
+  Strings: {
+    majorityOpinion: Strings.majorityOpinion,
+    group_123: Strings.group_123
+  },
+  handleCurateButtonClick: action('Clicked'),
+  math: mathResults,
 }
 
 export const MajoritySelected = Template.bind({})

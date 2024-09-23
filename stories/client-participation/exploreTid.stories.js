@@ -1,8 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-
 import ExploreTid from '../../polis/client-participation/vis2/components/exploreTid'
 import { getMath } from '../../.storybook/utils'
+import Strings from '../../polis/client-participation/js/strings/en_us'
 
 const mathResults = getMath()
 
@@ -15,18 +15,20 @@ const Template = (args) => <ExploreTid {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  onVoteClicked: action('Clicked'),
-  handleReturnToVoteClicked: action('Clicked'),
   selectedComment: { tid: 49, txt: 'This comment is foobar.' },
   browserDimensions: 800,
   Strings: {
-    pctAgreedOfGroupLong: '{{pct}}% of those in group {{group}} who voted on statement {{comment_id}} agreed.',
-    pctDisagreedOfGroupLong: '{{pct}}% of those in group {{group}} who voted on statement {{comment_id}} disagreed.'
+    pctAgreedLong: Strings.pctAgreedLong,
+    pctAgreedOfGroupLong: Strings.pctAgreedOfGroupLong,
+    pctDisagreedLong: Strings.pctDisagreedLong,
+    pctDisagreedOfGroupLong: Strings.pctDisagreedOfGroupLong,
   },
-  math: mathResults,
   selectedTidCuration: 0,
   comments: [],
   votesByMe: [],
+  onVoteClicked: action('Clicked'),
+  handleReturnToVoteClicked: action('Clicked'),
+  math: mathResults,
 }
 
 export const NarrowBrowserWidth = Template.bind({})
