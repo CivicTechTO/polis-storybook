@@ -4,7 +4,11 @@ import { getMath } from '../../.storybook/utils'
 import { svgDecorator } from '../../.storybook/decorators'
 import * as globals from '../../polis/client-participation/vis2/components/globals'
 
-const mathResults = getMath()
+const mathResult = getMath()
+const getGroupIds = (mathResult) => (mathResult['group-clusters'].map(g => g.id))
+const getGroupLabels = (mathResult) => (
+  getGroupIds(mathResult).map((gid) => globals.groupLabels[gid])
+)
 
 const groupIndexFromName = (groupName) => globals.groupLabels.indexOf(groupName)
 
@@ -13,31 +17,36 @@ export default {
   component: BarChartCompact,
   decorators: [svgDecorator],
   argTypes: {
+    // TODO: make statement display logic.
     statement: {
       options: ['1: Foo bar', '2: Foo baz'],
       control: { type: 'select' },
     },
     group: {
-      options: ['A', 'B', 'C', 'D'],
-      control: { type: 'inline-radio' },
+      // Makes [0, 1, 2, 3]
+      options: getGroupIds(mathResult),
+      control: {
+        type: 'inline-radio',
+        // Makes {0: 'A', 1: 'B', 2: 'C', 3: 'D'}
+        labels: Object.assign({}, getGroupLabels(mathResult)),
+      },
     },
   },
   render: ({ statement, group, ...args }) => {
-    const groupIndex = groupIndexFromName(group)
-
-    Object.assign(args.groupVotes, mathResults['group-votes'][groupIndex])
+    Object.assign(args.groupVotes, mathResult['group-votes'][group])
+    // TODO: make statement logic.
     return <BarChartCompact {...args} />
   },
 }
 
-const initialGroup = 'A'
+const initialGroup = 0
 const initialStatement = 4
 export const Default = {
   args: {
     group: initialGroup,
     statement: initialStatement,
     selectedComment: { tid: initialStatement },
-    groupVotes: mathResults['group-votes'][groupIndexFromName(initialGroup)],
-    translate: 'translate(0,0)',
+    groupVotes: Object.assign({}, mathResult['group-votes'][initialGroup]),
+    translate: 'translate(1,1)',
   }
 }
