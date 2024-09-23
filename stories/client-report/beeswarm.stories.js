@@ -8,7 +8,7 @@ import participationData from '../../.storybook/data/3ntrtcehas-participation-in
 const pcaData = JSON.parse(participationData.pca)
 
 export default {
-  title: 'Client-Report/Beeswarm',
+  title: 'Client-Report/Beeswarm (not working)',
   component: Beeswarm,
 }
 
