@@ -1,6 +1,8 @@
 # Storybook: Polis
 [![Build and Publish Storybook to GitHub Pages](https://github.com/CivicTechTO/polis-storybook/actions/workflows/deploy-github-pages.yml/badge.svg)](https://github.com/CivicTechTO/polis-storybook/actions/workflows/deploy-github-pages.yml)
 
+![image](https://github.com/user-attachments/assets/ad68bdc0-9db2-44e1-979f-706c84e86bef)
+
 The **purpose** of this Storybook component environment is to allow more lightweight and inclusive development of the Polis UI by both designers and developers, with particular intention toward improving accessibility. A secondary goal is to allow for more rapid iteration on the experience of interacting with Polis.
 
 We automatically deploy the most recent version on GitHub Pages:  
