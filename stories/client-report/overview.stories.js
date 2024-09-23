@@ -1,11 +1,8 @@
 import React from 'react'
+import Overview from '../../polis/client-report/src/components/overview'
+import { getMath, getConversation } from '../../.storybook/utils'
 
 import '../../polis/client-report/src/index.css';
-
-import Overview from '../../polis/client-report/src/components/overview'
-
-import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
-const pcaData = JSON.parse(participationData.pca)
 
 export default {
   title: 'Client-Report/Overview',
@@ -23,11 +20,11 @@ const computedStats = {
 
 export const Default = Template.bind({})
 Default.args = {
-  conversation: participationData.conversation,
+  conversation: getConversation(),
   // demographics,
   ptptCount: 100,
   ptptCountTotal: 100,
-  math: pcaData,
+  math: getMath(),
   // comments,
   //stats,
   computedStats,

@@ -1,9 +1,8 @@
 import React from 'react'
-
-import '../../../polis/client-report/src/index.css';
-
 import Legend from '../../../polis/client-report/src/components/framework/legend'
 import { getVoteColors } from '../../../.storybook/utils'
+
+import '../../../polis/client-report/src/index.css';
 
 export default {
   title: 'Client-Report/Legend',

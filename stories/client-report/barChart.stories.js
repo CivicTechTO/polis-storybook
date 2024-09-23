@@ -1,9 +1,8 @@
 import React from 'react'
-
 import BarChart from '../../polis/client-report/src/components/barChart'
+import { getMath } from '../../.storybook/utils'
 
-import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
-const pcaData = JSON.parse(participationData.pca)
+const mathResults = getMath()
 
 export default {
   title: 'Client-Report/BarChart',
@@ -22,8 +21,8 @@ const Template = (args) => <BarChart {...args} />
 export const Default = Template.bind({})
 Default.args = {
   comment: { tid: 4 },
-  groupVotes: pcaData['group-votes'][0],
-  ptptCount: pcaData['n'],
+  groupVotes: mathResults['group-votes'][0],
+  ptptCount: mathResults['n'],
 }
 
 export const SomeOtherComment = Template.bind({})
@@ -35,5 +34,5 @@ SomeOtherComment.args = {
 export const SomeOtherGroup = Template.bind({})
 SomeOtherGroup.args = {
   ...Default.args,
-  groupVotes: pcaData['group-votes'][2]
+  groupVotes: mathResults['group-votes'][2]
 }
