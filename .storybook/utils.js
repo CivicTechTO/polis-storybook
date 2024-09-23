@@ -5,6 +5,10 @@ export const getMath = () => {
   return JSON.parse(participationData.pca)
 }
 
+export const getConversation = () => {
+  return participationData.conversation
+}
+
 export const getVoteColors = () => ({
   agree: globals.brandColors.agree,
   disagree: globals.brandColors.disagree,
