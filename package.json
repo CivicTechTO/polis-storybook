@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jquery": "~2.1.4",
     "@chromatic-com/storybook": "^1.9.0",
     "@storybook/addon-essentials": "^8.3.2",
     "@storybook/addon-interactions": "^8.3.2",
@@ -22,6 +21,7 @@
     "@storybook/react": "^8.3.2",
     "@storybook/react-webpack5": "^8.3.2",
     "@storybook/test": "^8.3.2",
+    "jquery": "~2.1.4",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -34,6 +34,7 @@
     "color": "~4.2.3",
     "radium": "^0.26.2",
     "react-easy-emoji": "^1.8.1",
-    "theme-ui": "^0.3.5"
+    "theme-ui": "^0.3.5",
+    "victory-core": "~36.6.8"
   }
 }
