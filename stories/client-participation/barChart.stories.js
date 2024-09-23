@@ -2,8 +2,10 @@ import React from 'react'
 import BarChart from '../../polis/client-participation/vis2/components/barChart'
 import { getMath } from '../../.storybook/utils'
 
+const mathResults = getMath()
+
 export default {
-  title: 'Client-Participation/BarChart',
+  title: 'Client-Participation/BarChart (unused)',
   component: BarChart,
   decorators: [
     (Story) => (
@@ -15,8 +17,6 @@ export default {
 }
 
 const Template = (args) => <BarChart {...args} />
-
-const mathResults = getMath()
 
 export const Default = Template.bind({})
 Default.args = {
