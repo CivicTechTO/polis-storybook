@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "color": "~4.2.3",
+    "d3-force": "~1.2.1",
+    "hull.js": "^0.2.11",
     "radium": "^0.26.2",
     "react-easy-emoji": "^1.8.1",
     "theme-ui": "^0.3.5",
