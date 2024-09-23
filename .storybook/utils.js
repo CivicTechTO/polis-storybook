@@ -5,6 +5,17 @@ export const getMath = () => {
   return JSON.parse(participationData.pca)
 }
 
+export const getExtremity = () => {
+  const mathResult = getMath()
+  return mathResult.pca["comment-extremity"].reduce(
+    (acc, curr, i) => ({
+      ...acc,
+      [mathResult.tids[i]]: curr
+    }),
+    {}
+  )
+}
+
 export const getConversation = () => {
   return participationData.conversation
 }

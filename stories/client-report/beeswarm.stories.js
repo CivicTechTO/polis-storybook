@@ -1,6 +1,6 @@
 import React from 'react'
 import Beeswarm from '../../polis/client-report/src/components/beeswarm/beeswarm'
-import { getMath, getConversation } from '../../.storybook/utils'
+import { getMath, getConversation, getExtremity } from '../../.storybook/utils'
 
 import '../../polis/client-report/src/index.css';
 
@@ -28,13 +28,7 @@ export const Default = Template.bind({})
 Default.args = {
   ...AllNull.args,
   conversation: getConversation(),
-  extremity: mathResult.pca["comment-extremity"].reduce(
-    (acc, curr, i) => ({
-      ...acc,
-      [mathResult.tids[i]]: curr
-    }),
-    {}
-  ), //{this.state.extremity}
+  extremity: getExtremity(),
   math: mathResult,
   comments: null, //{this.state.comments}
   probabilities: null, //{this.state.filteredCorrelationMatrix}
