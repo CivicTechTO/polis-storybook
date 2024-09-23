@@ -2,9 +2,9 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 
 import ExploreTid from '../../polis/client-participation/vis2/components/exploreTid'
+import { getMath } from '../../.storybook/utils'
 
-import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
-const pcaData = JSON.parse(participationData.pca)
+const mathResults = getMath()
 
 export default {
   title: 'Client-Participation/ExploreTid',
@@ -23,7 +23,7 @@ Default.args = {
     pctAgreedOfGroupLong: '{{pct}}% of those in group {{group}} who voted on statement {{comment_id}} agreed.',
     pctDisagreedOfGroupLong: '{{pct}}% of those in group {{group}} who voted on statement {{comment_id}} disagreed.'
   },
-  math: pcaData,
+  math: mathResults,
   selectedTidCuration: 0,
   comments: [],
   votesByMe: [],

@@ -1,11 +1,10 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-
 import * as globals from '../../polis/client-participation/vis2/components/globals'
 import Curate from '../../polis/client-participation/vis2/components/curate'
+import { getMath } from '../../.storybook/utils'
 
-import participationData from '../../.storybook/data/3ntrtcehas-participation-init.json'
-const pcaData = JSON.parse(participationData.pca)
+const mathResults = getMath()
 
 export default {
   title: 'Client-Participation/Curate',
@@ -16,7 +15,7 @@ const Template = (args) => <Curate {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  math: pcaData,
+  math: mathResults,
   handleCurateButtonClick: action('Clicked'),
   selectedTidCuration: null,
   Strings: {majorityOpinion: 'Majority Opinion', group_123: 'Group:'}
