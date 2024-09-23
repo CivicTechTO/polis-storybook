@@ -23,6 +23,12 @@
     "@storybook/react-webpack5": "^8.3.2",
     "@storybook/test": "^8.3.2",
     "prop-types": "^15.8.1",
+    "react": "~17.0",
+    "react-dom": "~17.0",
     "storybook": "^8.3.2"
+  },
+  "dependencies": {
+    "color": "~4.2.3",
+    "radium": "^0.26.2"
   }
 }
