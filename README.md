@@ -50,7 +50,7 @@ A browser window will open automatically: http://localhost:6006
 GNU Affero General Public License v3.0 (See [LICENSE](./LICENSE))
 
 <!-- Links -->
-   [polis-diff]: https://github.com/compdemocracy/polis/compare/edge...patcon:polis:storybook-prep
+   [polis-diff]: https://github.com/compdemocracy/polis/compare/edge...CivicTechTO:polis:storybook-prep
    [storybook]: https://storybook.js.org/
    [github-actions]: https://github.com/features/actions
    [github-pages]: https://pages.github.com/
