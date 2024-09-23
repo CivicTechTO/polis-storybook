@@ -1,0 +1,15 @@
+import React from 'react'
+import Press from '../../polis/client-admin/src/components/landers/press'
+import { withThemeUi } from '../../.storybook/decorators'
+import { withRouter } from 'storybook-addon-remix-react-router';
+
+export default {
+  title: 'Client-Admin/Press',
+  component: Press,
+  decorators: [withThemeUi, withRouter],
+}
+
+const Template = (args) => <Press {...args} />
+
+export const Default = Template.bind({})
+Default.args = {}
