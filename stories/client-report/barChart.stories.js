@@ -1,19 +1,14 @@
 import React from 'react'
 import BarChart from '../../polis/client-report/src/components/barChart'
 import { getMath } from '../../.storybook/utils'
+import { svgDecorator } from '../../.storybook/decorators'
 
 const mathResults = getMath()
 
 export default {
   title: 'Client-Report/BarChart',
   component: BarChart,
-  decorators: [
-    (Story) => (
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100">
-        <Story />
-      </svg>
-    )
-  ]
+  decorators: [svgDecorator],
 }
 
 const Template = (args) => <BarChart {...args} />
