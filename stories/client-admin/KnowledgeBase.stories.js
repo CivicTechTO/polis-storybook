@@ -12,7 +12,7 @@ const Template = (args) => <KnowledgeBase {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-    url: "https://compdemocracy.org/Welcome",
+    url: "https://google.com",
     e: "🔍",
     txt: "Google"
 }
