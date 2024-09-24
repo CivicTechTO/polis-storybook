@@ -27,14 +27,15 @@ Requirements:
 git checkout https://github.com/CivicTechTO/polis-storybook
 cd polis-storybook
 
-git submodule init
-git submodule update
-
+git submodule update --init
 npm install
+
 npm run storybook
 ```
 
 A browser window will open automatically: http://localhost:6006
+
+(If you have the `make` command installed, you may run `make` to see the helper tasks it can help you run.)
 
 ## Technologies Used
 
