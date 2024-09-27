@@ -33,9 +33,13 @@ Default.args = {
   selectedTidCuration: 1,
   commentsToShow: commentsData.slice(10,20),
   selectedComment: null,
+  // TODO: Pretty sure this is janky. It should be simply action("Clicked")
+  // and the prop in tidCarousel should be:
+  // onClick={() => this.props.handleCommentClick(c)}
+  // not just
+  // onClick={this.props.handleCommentClick(c)}
+  handleCommentClick: () => action("Clicked"),
   Strings,
-  handleCommentClick: (e) => action("Clicked"),
-  Strings: Strings,
 }
 
 // TODO: Load dataset with hundreds/thousands of comments.
