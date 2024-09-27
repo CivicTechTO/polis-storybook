@@ -1,5 +1,4 @@
 import React from 'react'
-
 import * as globals from '../../polis/client-participation/vis2/components/globals'
 import GraphAxes from '../../polis/client-participation/vis2/components/graphAxes'
 

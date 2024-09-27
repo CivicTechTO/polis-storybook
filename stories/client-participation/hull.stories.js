@@ -1,7 +1,5 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-
-import * as globals from '../../polis/client-participation/vis2/components/globals'
 import { Hull } from '../../polis/client-participation/vis2/components/hull'
 
 export default {
