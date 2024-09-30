@@ -92,7 +92,7 @@ export default {
   component: TidCarouselV2,
   argTypes: {
     group: {
-      options: ['A', 'B', 'C', 'D'],
+      options: ['Majority', 'A', 'B', 'C', 'D'],
       control: { type: 'inline-radio' },
     },
   },
@@ -101,6 +101,7 @@ export default {
 const Template = (args) => {
   const [selectedComment, setSelectedComment] = React.useState(null)
   const NUMBERS_DATA = {
+    Majority: [1,19,20,31,36,37],
     A: [2,4,5,18,49],
     B: [2,4,5,18,22],
     C: [3,9,17,25,33],
@@ -124,7 +125,7 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  group: 'A',
+  group: 'Majority',
   selectedTidCuration: 1,
   allComments: commentsData,
   Strings,
