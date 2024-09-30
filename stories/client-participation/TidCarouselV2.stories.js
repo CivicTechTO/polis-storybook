@@ -114,7 +114,7 @@ const Template = (args) => {
   }
   const commentsToShow = commentsData.filter(c => NUMBERS_DATA[args.group].includes(c.tid))
   if (!NUMBERS_DATA[args.group].includes(selectedComment?.tid)) {
-    setSelectedComment(commentsToShow[0])
+    handleCommentClick(commentsToShow[0])
   }
   return <TidCarouselV2 {...args} {...{
     handleCommentClick,
