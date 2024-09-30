@@ -33,6 +33,7 @@
     "storybook-branch-switcher": "github:patcon/storybook-branch-switcher#13-git-submodule-checkout"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.4",
     "color": "~4.2.3",
     "d3-force": "~1.2.1",
     "hull.js": "^0.2.11",
