@@ -11,28 +11,20 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
     from: {
       width: 0,
       marginRight: 0,
-      minWidth: 0,
-      paddingX: 0,
-      paddingY: 0,
-      fontSize: 0,
+      fontSize: 6,
+      opacity: 1,
     },
     enter: {
-      // Set to maxWidth. Can't do percent.
       width: 32,
       marginRight: 5,
-      minWidth: 22,
-      paddingX: 1,
-      paddingY: 6,
-      // Rough estimate. Would rather not hardcore.
       fontSize: 14,
+      opacity: 1,
     },
     leave: {
       width: 0,
       marginRight: 0,
-      minWidth: 0,
-      paddingX: 0,
-      paddingY: 0,
-      fontSize: 6,
+      fontSize: 0,
+      opacity: 0,
     }
   })
   return (
@@ -40,25 +32,18 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
       isShown && <animated.button
         onClick={handleClick}
         style={{
-          marginRight: style.marginRight,
           width: style.width,
-          minWidth: style.minWidth,
-          // paddingX and paddingY don't work so well with react-spring for some reason.
-          paddingTop: style.paddingY,
-          paddingBottom: style.paddingY,
-          paddingLeft: style.paddingX,
-          paddingRight: style.paddingX,
-          // Seems to be performance hit.
+          marginRight: style.marginRight,
           fontSize: style.fontSize,
-          // Opacity, so doesn't jump around when going from unselected to selected.
-          border: isSelected ? "1px solid rgb(80, 80, 80, 1)" : "1px solid rgb(80, 80, 80, 0)",
-          fontWeight: isSelected ? 700 : 300,
-          maxWidth: 32,
+          opacity: style.opacity,
+          padding: 0,
+          border: 0,
           cursor: "pointer",
-          backgroundColor: "rgb(235,235,235)",
-          color: "rgb(0,0,0)",
-          borderRadius: 4,
           overflow: "hidden",
+          borderRadius: 4,
+          fontWeight: isSelected ? 700 : 300,
+          backgroundColor: isSelected ? "#03a9f4" : "rgb(235,235,235)",
+          color: isSelected ? "white" : "rgb(0,0,0)",
         }}>
         {label}
       </animated.button>
@@ -80,7 +65,15 @@ const TidCarouselV2 = ({
   const commentsToShowTids = commentsToShow.map(c => c.tid)
 
   return (
-    <div>
+    <div style={{
+      display: "flex",
+      flex: 1,
+      width: 250,
+      height: 30,
+      paddingX: 0,
+      justifyContent: "flex-start",
+      gap: 0,
+    }}>
       {allComments.map(c => (
         <TidCarouselButton
           id={c.tid}
@@ -97,22 +90,42 @@ const TidCarouselV2 = ({
 export default {
   title: 'Client-Participation/TidCarouselV2',
   component: TidCarouselV2,
+  argTypes: {
+    group: {
+      options: ['A', 'B', 'C', 'D'],
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 const Template = (args) => {
   const [selectedComment, setSelectedComment] = React.useState(null)
+  const NUMBERS_DATA = {
+    A: [2,4,5,18,49],
+    B: [2,4,5,18,22],
+    C: [3,9,17,25,33],
+    D: [59],
+  }
 
   const handleCommentClick = (c) => {
     setSelectedComment(c)
     action("Clicked")(c)
   }
-  return <TidCarouselV2 {...args} {...{handleCommentClick, selectedComment}} />
+  const commentsToShow = commentsData.filter(c => NUMBERS_DATA[args.group].includes(c.tid))
+  if (!NUMBERS_DATA[args.group].includes(selectedComment?.tid)) {
+    setSelectedComment(commentsToShow[0])
+  }
+  return <TidCarouselV2 {...args} {...{
+    handleCommentClick,
+    selectedComment,
+    commentsToShow: commentsToShow,
+  }} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
+  group: 'A',
   selectedTidCuration: 1,
-  commentsToShow: commentsData.filter(c => [2, 5, 32, 52, 60].includes(c.tid)),
   allComments: commentsData,
   Strings,
 }
