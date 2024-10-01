@@ -48,7 +48,7 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerW
         <span style={{
           // 1s is rought estimate, but react-spring uses forces, not duration.
           transition: "transform 1s ease-in-out",
-          transform: isShown ? "scaleX(1)" : "scaleX(0)",
+          transform: isShown ? "scaleX(1)" : "scaleX(0.5)",
           // Needed in order to transform.
           display: "inline-block",
         }}>
