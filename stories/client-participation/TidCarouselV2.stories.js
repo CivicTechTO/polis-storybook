@@ -3,29 +3,27 @@ import { action } from '@storybook/addon-actions'
 import Strings from '../../polis/client-participation/js/strings/en_us'
 import { animated, useTransition } from '@react-spring/web'
 import commentsData from '../../.storybook/data/3ntrtcehas-comments.json'
+import useMeasure from 'react-use-measure'
 
 commentsData.sort((a,b) => a.tid - b.tid)
 
-const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
+const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerWidth }) => {
   const transition = useTransition(isShown, {
     from: {
       width: 0,
       marginRight: 0,
-      fontSize: 6,
       opacity: 1,
     },
     enter: {
-      width: 32,
-      marginRight: 5,
-      fontSize: 14,
+      width: containerWidth/5-5,
+      marginRight: 0,
       opacity: 1,
     },
     leave: {
       width: 0,
-      marginRight: 0,
-      fontSize: 0,
+      marginRight: -5,
       opacity: 0,
-    }
+    },
   })
   return (
     transition((style, isShownTransition) => (
@@ -38,7 +36,6 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
           // fontSize changes seem slow. Scale span instead.
           // fontSize: style.fontSize,
           opacity: style.opacity,
-          marginBottom: 5,
           padding: 0,
           border: 0,
           cursor: "pointer",
@@ -71,21 +68,26 @@ const TidCarouselV2 = ({
   Strings,
 }) => {
   if ( selectedTidCuration === null ) return null
+  const [ref, bounds] = useMeasure()
 
   allComments = allComments.sort((a, b) => a.tid - b.tid)
   const commentsToShowTids = commentsToShow.map(c => c.tid)
 
+  // ref not available on first render, so only render map after bounds exists.
   return (
-    <div style={{
+    <div ref={ref} style={{
       display: "flex",
       flex: 1,
-      width: 185,
+      width: "100%",
       height: 65,
       paddingX: 0,
+      gap: 5,
+      rowGap: 5,
       flexWrap: "wrap",
     }}>
-      {allComments.map(c => (
+      {!bounds.width || allComments.map((c, i) => (
         <TidCarouselButton
+          containerWidth={bounds.width}
           id={c.tid}
           label={c.tid}
           handleClick={() => handleCommentClick(c)}
