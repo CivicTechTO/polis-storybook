@@ -111,7 +111,7 @@ export default {
 const Template = (args) => {
   const [selectedComment, setSelectedComment] = React.useState(null)
   const NUMBERS_DATA = {
-    Majority: [1,19,20,31,36,37],
+    Majority: [1,19,20,31,36,33,37,42,43,52],
     A: [2,4,5,18,49],
     B: [2,4,5,18,22],
     C: [3,9,17,25,33],
