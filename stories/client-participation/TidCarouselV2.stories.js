@@ -28,14 +28,17 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
     }
   })
   return (
-    transition((style, isShown) => (
-      isShown && <animated.button
+    transition((style, isShownTransition) => (
+      isShownTransition && <animated.button
         onClick={handleClick}
         style={{
           width: style.width,
+          height: 30,
           marginRight: style.marginRight,
-          fontSize: style.fontSize,
+          // fontSize changes seem slow. Scale span instead.
+          // fontSize: style.fontSize,
           opacity: style.opacity,
+          marginBottom: 5,
           padding: 0,
           border: 0,
           cursor: "pointer",
@@ -45,7 +48,15 @@ const TidCarouselButton = ({ label, isShown, isSelected, handleClick }) => {
           backgroundColor: isSelected ? "#03a9f4" : "rgb(235,235,235)",
           color: isSelected ? "white" : "rgb(0,0,0)",
         }}>
-        {label}
+        <span style={{
+          // 1s is rought estimate, but react-spring uses forces, not duration.
+          transition: "transform 1s ease-in-out",
+          transform: isShown ? "scaleX(1)" : "scaleX(0)",
+          // Needed in order to transform.
+          display: "inline-block",
+        }}>
+          {label}
+        </span>
       </animated.button>
     ))
   )
@@ -68,11 +79,10 @@ const TidCarouselV2 = ({
     <div style={{
       display: "flex",
       flex: 1,
-      width: 250,
-      height: 30,
+      width: 185,
+      height: 65,
       paddingX: 0,
-      justifyContent: "flex-start",
-      gap: 0,
+      flexWrap: "wrap",
     }}>
       {allComments.map(c => (
         <TidCarouselButton
