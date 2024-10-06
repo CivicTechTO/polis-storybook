@@ -1,5 +1,5 @@
 {
-  "from": "dist/storybook",
+  "from": "storybook-static",
   "to": "dist/storybook-bundle",
   "default_branch": "6-branch-switcher-addon",
   "default_root": true,
