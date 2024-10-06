@@ -5,6 +5,13 @@ setup: ## Install packages and polis codebase
 run: ## Run storybook development environment
 	npm run storybook
 
+build: ## Build static storybook for deploy
+	npm run build-storybook
+
+build-all-branches: ## Build static storybook for all PR branches (requires GITHUB_TOKEN)
+	npm run build-storybook
+	npx sb-branch-switch --config .storybook/.branches.json
+
 %:
 	@true
 
