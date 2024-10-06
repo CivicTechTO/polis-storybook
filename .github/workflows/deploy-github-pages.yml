@@ -22,6 +22,8 @@ jobs:
 
       # See: https://github.com/bitovi/github-actions-storybook-to-github-pages
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           build_command: "npm run build-storybook && npx sb-branch-switcher --config .storybook/.branches.json"
           path: dist/storybook-bundle
