@@ -12,5 +12,5 @@ const Template = (args) => <Subtitle {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  valeu: "Some subtitle",
+  value: "Some subtitle",
 }

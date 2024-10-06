@@ -12,5 +12,5 @@ const Template = (args) => <Title {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  valeu: "Some title",
+  value: "Some title",
 }
