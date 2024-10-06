@@ -1,7 +1,7 @@
 {
   "from": "dist/storybook",
   "to": "dist/storybook-bundle",
-  "default_branch": "main",
+  "default_branch": "6-branch-switcher-addon",
   "default_root": true,
   "provider": {
     "type": "github",
