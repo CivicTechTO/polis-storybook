@@ -1,6 +1,7 @@
 {
   "from": "storybook-static",
   "to": "dist/storybook-bundle",
+  "script_name": "build-storybook-branch",
   "default_branch": "6-branch-switcher-addon",
   "default_root": true,
   "provider": {
