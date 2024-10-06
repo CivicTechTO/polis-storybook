@@ -9,7 +9,6 @@ build: ## Build static storybook for deploy
 	npm run build-storybook
 
 build-all-branches: ## Build static storybook for all PR branches (requires GITHUB_TOKEN)
-	npm run build-storybook
 	npx sb-branch-switch --config .storybook/.branches.json
 
 %:
