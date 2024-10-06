@@ -9,9 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # For storybook-branch-switcher addon.
-  # See: https://github.com/utarwyn/storybook-branch-switcher
-  pull-requests: read
 
 jobs:
   deploy:
