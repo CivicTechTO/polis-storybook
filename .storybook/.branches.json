@@ -1,5 +1,5 @@
 {
-  "from": "storybook-static",
+  "from": "dist/storybook",
   "to": "dist/storybook-bundle",
   "script_name": "build-storybook-branch",
   "default_branch": "main",
