@@ -25,7 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          build_command: "npm run build-storybook && npx sb-branch-switcher --config .storybook/.branches.json"
+          build_command: "npx sb-branch-switcher --config .storybook/.branches.json"
           path: dist/storybook-bundle
           # Done manually so we can checkout submodule
           checkout: false
