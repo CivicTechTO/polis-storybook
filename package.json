@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --output-dir storybook-static",
+    "build-storybook": "storybook build --output-dir dist/storybook",
     "build-storybook-branch": "git submodule update --init && npm run build-storybook"
   },
   "keywords": [],
