@@ -1,0 +1,16 @@
+import React from 'react'
+import DoesNotExist from '../../polis-UT-HAI/client-deliberation/src/components/DoesNotExist'
+import { withDelibThemeUi } from '../../.storybook/decorators'
+
+export default {
+  title: 'Client-Deliberation/DoesNotExist',
+  component: DoesNotExist,
+  decorators: [withDelibThemeUi],
+}
+
+const Template = (args) => <DoesNotExist {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  title: "Some title",
+}

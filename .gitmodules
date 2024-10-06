@@ -1,3 +1,6 @@
 [submodule "polis"]
 	path = polis
 	url = https://github.com/CivicTechTO/polis.git
+[submodule "polis-UT-HAI"]
+	path = polis-UT-HAI
+	url = https://github.com/UT-HAI/polis.git
