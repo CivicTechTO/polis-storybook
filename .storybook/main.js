@@ -11,6 +11,7 @@ const config = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     "storybook-addon-remix-react-router",
+    "storybook-branch-switcher",
   ],
   framework: {
     name: "@storybook/react-webpack5",

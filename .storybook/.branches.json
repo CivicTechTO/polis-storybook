@@ -1,0 +1,12 @@
+{
+  "from": "dist/storybook",
+  "to": "dist/storybook-bundle",
+  "script_name": "build-storybook-branch",
+  "default_branch": "main",
+  "default_root": true,
+  "provider": {
+    "type": "github",
+    "owner": "CivicTechTO",
+    "repository": "polis-storybook"
+  }
+}
