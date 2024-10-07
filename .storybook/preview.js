@@ -14,7 +14,7 @@ const preview = {
   },
 };
 
-if (true) {
+if (isGithubBuild) {
   const [owner, repo] = process.env["GITHUB_REPOSITORY"].split("/")
   preview.parameters["branches"] = {
     hostname: `${owner}.github.io/${repo}`,

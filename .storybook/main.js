@@ -19,7 +19,7 @@ const config = {
   },
   env: (config) => ({
     ...config,
-    GITHUB_REPOSITORY: process.env["GITHUB_REPOSITORY"],
+    GITHUB_REPOSITORY: process.env["GITHUB_REPOSITORY"] || null,
   }),
 };
 export default config;
