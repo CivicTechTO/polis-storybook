@@ -17,5 +17,9 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
+  env: (config) => ({
+    ...config,
+    GITHUB_REPOSITORY: process.env["GITHUB_REPOSITORY"],
+  }),
 };
 export default config;
