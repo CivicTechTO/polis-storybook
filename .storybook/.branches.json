@@ -1,7 +1,7 @@
 {
   "from": "dist/storybook",
   "to": "dist/storybook-bundle",
-  "script_name": "build-storybook-branch",
+  "script_name": "build-storybook",
   "default_branch": "main",
   "default_root": true,
   "provider": {
