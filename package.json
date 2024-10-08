@@ -30,7 +30,7 @@
     "redux-thunk": "~2.3.0",
     "storybook": "^8.3.2",
     "storybook-addon-remix-react-router": "^3.0.0",
-    "storybook-branch-switcher": "github:patcon/storybook-branch-switcher#13-git-submodule-checkout"
+    "storybook-branch-switcher": "github:patcon/storybook-branch-switcher#patcon/dev"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",
