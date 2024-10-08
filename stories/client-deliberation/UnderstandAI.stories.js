@@ -1,0 +1,14 @@
+import React from 'react'
+import UnderstandAI from '../../polis-UT-HAI/client-deliberation/src/components/UnderstandAI'
+import { withDelibThemeUi } from '../../.storybook/decorators'
+
+export default {
+  title: 'Client-Deliberation/UnderstandAI',
+  component: UnderstandAI,
+  decorators: [withDelibThemeUi],
+}
+
+const Template = (args) => <div>Not Yet Implemented</div>
+
+export const Default = Template.bind({})
+Default.args = {}
