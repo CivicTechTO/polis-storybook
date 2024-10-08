@@ -6,9 +6,17 @@ export default {
   title: 'Client-Deliberation/IndividualDeliberation',
   component: IndividualDeliberation,
   decorators: [withDelibThemeUi],
+  argTypes: {
+    currentIndex: {
+      options: [0, 1, 2],
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 const Template = (args) => <IndividualDeliberation {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  currentIndex: 0,
+}
