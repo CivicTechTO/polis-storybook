@@ -33,3 +33,11 @@ jobs:
           path: dist/storybook-bundle
           # Done manually so we can checkout submodule
           checkout: false
+
+      - uses: ouzi-dev/commit-status-updater@v2
+        if: ${{ github.event_name == 'pull_request_target' }}
+        with:
+          status: "success"
+          url: "https://civictechto.github.com/polis-storybook/PR-${{ github.event.number }}/"
+          name: "Storybook"
+          description: "This branch now available."
