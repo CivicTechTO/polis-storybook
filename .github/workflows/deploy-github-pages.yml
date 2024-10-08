@@ -34,7 +34,8 @@ jobs:
           # Done manually so we can checkout submodule
           checkout: false
 
-      - uses: ouzi-dev/commit-status-updater@v2
+      # See: https://github.com/ouzi-dev/commit-status-updater/pull/533
+      - uses: patcon/commit-status-updater@patch-1
         if: ${{ github.event_name == 'pull_request_target' }}
         with:
           status: "success"
