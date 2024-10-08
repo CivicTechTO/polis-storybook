@@ -38,6 +38,6 @@ jobs:
         if: ${{ github.event_name == 'pull_request_target' }}
         with:
           status: "success"
-          url: "https://civictechto.github.com/polis-storybook/PR-${{ github.event.number }}/"
+          url: "https://civictechto.github.io/polis-storybook/PR-${{ github.event.number }}/"
           name: "Storybook"
           description: "This branch now available."
