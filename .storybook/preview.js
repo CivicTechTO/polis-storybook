@@ -1,4 +1,6 @@
 /** @type { import('@storybook/react').Preview } */
+import "./style.css"
+
 const isGithubBuild = !!process.env["GITHUB_REPOSITORY"]
 const preview = {
   parameters: {
