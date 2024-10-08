@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - 'main'
-  pull_request:
+  # WARNING: This allows storybook-branch-switcher CLI to run `npm run ${arbitrary_script}`
+  # BUT the worst it can do is force changes to our GitHub Pages website,
+  # unless the permissions key below is changed.
+  pull_request_target:
     types: [opened, synchronize, reopened]
 
+# Be careful about changing these, due to pull_request_target trigger.
 permissions:
   contents: read
   pages: write
