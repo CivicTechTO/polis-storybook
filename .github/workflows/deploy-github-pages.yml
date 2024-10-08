@@ -5,7 +5,9 @@ on:
     branches:
       - 'main'
   # WARNING: This allows storybook-branch-switcher CLI to run `npm run ${arbitrary_script}`
-  # BUT the worst it can do is force changes to our GitHub Pages website,
+  # BUT the worst it can do is:
+  # - force changes to our GitHub Pages website,
+  # - force commit status updates,
   # unless the permissions key below is changed.
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -15,6 +17,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  statuses: write
 
 jobs:
   deploy:
