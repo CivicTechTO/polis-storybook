@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../../polis/client-admin/src/components/landers/lander-footer'
+import Footer from '../../codebases/compdem/client-admin/src/components/landers/lander-footer'
 import { withThemeUi } from '../../.storybook/decorators'
 
 export default {

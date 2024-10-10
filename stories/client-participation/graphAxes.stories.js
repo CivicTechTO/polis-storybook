@@ -1,6 +1,6 @@
 import React from 'react'
-import * as globals from '../../polis/client-participation/vis2/components/globals'
-import GraphAxes from '../../polis/client-participation/vis2/components/graphAxes'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
+import GraphAxes from '../../codebases/compdem/client-participation/vis2/components/graphAxes'
 
 export default {
   title: 'Client-Participation/GraphAxes',

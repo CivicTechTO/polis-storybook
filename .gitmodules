@@ -1,5 +1,5 @@
 [submodule "polis"]
-	path = polis
+	path = codebases/compdem
 	url = https://github.com/CivicTechTO/polis.git
 [submodule "polis-UT-HAI"]
 	path = polis-UT-HAI

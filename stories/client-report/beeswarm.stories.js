@@ -1,8 +1,8 @@
 import React from 'react'
-import Beeswarm from '../../polis/client-report/src/components/beeswarm/beeswarm'
+import Beeswarm from '../../codebases/compdem/client-report/src/components/beeswarm/beeswarm'
 import { getMath, getConversation, getExtremity } from '../../.storybook/utils'
 
-import '../../polis/client-report/src/index.css';
+import '../../codebases/compdem/client-report/src/index.css';
 
 const mathResult = getMath()
 

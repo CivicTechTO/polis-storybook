@@ -1,4 +1,4 @@
-import * as globals from "../polis/client-report/src/components/globals";
+import * as globals from "../codebases/compdem/client-report/src/components/globals";
 import participationData from './data/3ntrtcehas-participation-init.json'
 
 export const getMath = () => {

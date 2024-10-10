@@ -1,5 +1,5 @@
 import React from 'react'
-import KnowledgeBase from '../../polis/client-admin/src/components/landers/knowledgeBase'
+import KnowledgeBase from '../../codebases/compdem/client-admin/src/components/landers/knowledgeBase'
 import { withThemeUi } from '../../.storybook/decorators'
 
 export default {

@@ -1,5 +1,5 @@
 import React from 'react'
-import SignIn from '../../polis/client-admin/src/components/landers/signin'
+import SignIn from '../../codebases/compdem/client-admin/src/components/landers/signin'
 import { withThemeUi, withRedux } from '../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router'
 

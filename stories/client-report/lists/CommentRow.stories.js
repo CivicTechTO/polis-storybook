@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommentRow } from '../../../polis/client-report/src/components/lists/commentList.js'
+import { CommentRow } from '../../../codebases/compdem/client-report/src/components/lists/commentList.js'
 
 import participationData from '../../../.storybook/data/3ntrtcehas-participation-init.json'
 const pcaData = JSON.parse(participationData.pca)
