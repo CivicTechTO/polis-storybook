@@ -1,5 +1,5 @@
 import React from 'react'
-import InteriorHeader from '../../polis-UT-HAI/client-deliberation/src/components/interior-header'
+import InteriorHeader from '../../codebases/UT-HAI/client-deliberation/src/components/interior-header'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router'
 

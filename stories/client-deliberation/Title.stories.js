@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../../polis-UT-HAI/client-deliberation/src/components/Title'
+import Title from '../../codebases/UT-HAI/client-deliberation/src/components/Title'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

@@ -1,5 +1,5 @@
 import React from 'react'
-import ConversationUI from '../../polis-UT-HAI/client-deliberation/src/components/ConversationUI'
+import ConversationUI from '../../codebases/UT-HAI/client-deliberation/src/components/ConversationUI'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

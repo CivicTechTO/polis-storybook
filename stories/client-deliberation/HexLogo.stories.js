@@ -1,5 +1,5 @@
 import React from 'react'
-import HexLogo from '../../polis-UT-HAI/client-deliberation/src/components/hexLogo'
+import HexLogo from '../../codebases/UT-HAI/client-deliberation/src/components/hexLogo'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react'
-import StatementUI from '../../polis-UT-HAI/client-deliberation/src/components/StatementUI'
-import StatementUIContainer from '../../polis-UT-HAI/client-deliberation/src/components/StatementUIContainer'
+import StatementUI from '../../codebases/UT-HAI/client-deliberation/src/components/StatementUI'
+import StatementUIContainer from '../../codebases/UT-HAI/client-deliberation/src/components/StatementUIContainer'
 import { action } from '@storybook/addon-actions'
 import socialAvatar from '../../.storybook/assets/avatar-sample.jpg'
 import { withDelibThemeUi } from '../../.storybook/decorators'

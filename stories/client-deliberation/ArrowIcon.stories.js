@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrowIcon from '../../polis-UT-HAI/client-deliberation/src/components/ArrowIcon'
+import ArrowIcon from '../../codebases/UT-HAI/client-deliberation/src/components/ArrowIcon'
 
 export default {
   title: 'Client-Deliberation/ArrowIcon',

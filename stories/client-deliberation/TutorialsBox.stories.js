@@ -1,5 +1,5 @@
 import React from 'react'
-import TutorialsBox from '../../polis-UT-HAI/client-deliberation/src/components/TutorialsBox'
+import TutorialsBox from '../../codebases/UT-HAI/client-deliberation/src/components/TutorialsBox'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

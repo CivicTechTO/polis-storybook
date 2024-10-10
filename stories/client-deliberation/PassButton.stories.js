@@ -1,5 +1,5 @@
 import React from 'react'
-import PassButton from '../../polis-UT-HAI/client-deliberation/src/components/PassButton'
+import PassButton from '../../codebases/UT-HAI/client-deliberation/src/components/PassButton'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 

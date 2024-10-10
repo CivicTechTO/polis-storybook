@@ -1,5 +1,5 @@
 import React from 'react'
-import UnderstandAI from '../../polis-UT-HAI/client-deliberation/src/components/UnderstandAI'
+import UnderstandAI from '../../codebases/UT-HAI/client-deliberation/src/components/UnderstandAI'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react'
-import SidebarModule from '../../polis-UT-HAI/client-deliberation/src/components/SidebarModule'
-import Sidebar from '../../polis-UT-HAI/client-deliberation/src/components/Sidebar'
+import SidebarModule from '../../codebases/UT-HAI/client-deliberation/src/components/SidebarModule'
+import Sidebar from '../../codebases/UT-HAI/client-deliberation/src/components/Sidebar'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 import { action } from '@storybook/addon-actions'
 

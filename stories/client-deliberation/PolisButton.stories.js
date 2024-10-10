@@ -1,5 +1,5 @@
 import React from 'react'
-import PolisButton from '../../polis-UT-HAI/client-deliberation/src/components/PolisButton'
+import PolisButton from '../../codebases/UT-HAI/client-deliberation/src/components/PolisButton'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 

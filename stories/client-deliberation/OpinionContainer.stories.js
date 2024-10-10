@@ -1,5 +1,5 @@
 import React from 'react'
-import OpinionContainer from '../../polis-UT-HAI/client-deliberation/src/components/OpinionContainer'
+import OpinionContainer from '../../codebases/UT-HAI/client-deliberation/src/components/OpinionContainer'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

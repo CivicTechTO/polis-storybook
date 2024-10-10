@@ -1,5 +1,5 @@
 import React from 'react'
-import AgreeButton from '../../polis-UT-HAI/client-deliberation/src/components/AgreeButton'
+import AgreeButton from '../../codebases/UT-HAI/client-deliberation/src/components/AgreeButton'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 

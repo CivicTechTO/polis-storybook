@@ -1,5 +1,5 @@
 import React from 'react'
-import Tutorial from '../../polis-UT-HAI/client-deliberation/src/components/Tutorial'
+import Tutorial from '../../codebases/UT-HAI/client-deliberation/src/components/Tutorial'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import StatementFormTutorial from '../../polis-UT-HAI/client-deliberation/src/components/StatementFormTutorial'
+import StatementFormTutorial from '../../codebases/UT-HAI/client-deliberation/src/components/StatementFormTutorial'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

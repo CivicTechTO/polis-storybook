@@ -1,5 +1,5 @@
 import React from 'react'
-import IntegrateLink from '../../polis-UT-HAI/client-deliberation/src/components/IntegrateLink'
+import IntegrateLink from '../../codebases/UT-HAI/client-deliberation/src/components/IntegrateLink'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Subtitle from '../../polis-UT-HAI/client-deliberation/src/components/Subtitle'
+import Subtitle from '../../codebases/UT-HAI/client-deliberation/src/components/Subtitle'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

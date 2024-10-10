@@ -1,5 +1,5 @@
 import React from 'react'
-import IntegrateBoxAndConclusion from '../../polis-UT-HAI/client-deliberation/src/components/IntegrateBoxAndConclusion'
+import IntegrateBoxAndConclusion from '../../codebases/UT-HAI/client-deliberation/src/components/IntegrateBoxAndConclusion'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 import { Default as DefaultIntegrateBoxStory } from './IntegrateBox.stories'
 

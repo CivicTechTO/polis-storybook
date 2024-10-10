@@ -1,5 +1,5 @@
 import React from 'react'
-import StatementForm from '../../polis-UT-HAI/client-deliberation/src/components/StatementForm'
+import StatementForm from '../../codebases/UT-HAI/client-deliberation/src/components/StatementForm'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 import socialAvatar from '../../.storybook/assets/avatar-sample.jpg'

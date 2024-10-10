@@ -1,5 +1,5 @@
 import React from 'react'
-import StatementButton from '../../polis-UT-HAI/client-deliberation/src/components/StatementButton'
+import StatementButton from '../../codebases/UT-HAI/client-deliberation/src/components/StatementButton'
 import { action } from '@storybook/addon-actions'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 

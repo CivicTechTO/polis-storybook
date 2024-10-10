@@ -1,5 +1,5 @@
 import React from 'react'
-import ObtainLink from '../../polis-UT-HAI/client-deliberation/src/components/ObtainLink'
+import ObtainLink from '../../codebases/UT-HAI/client-deliberation/src/components/ObtainLink'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

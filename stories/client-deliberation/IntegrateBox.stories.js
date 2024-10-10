@@ -1,5 +1,5 @@
 import React from 'react'
-import IntegrateBox from '../../polis-UT-HAI/client-deliberation/src/components/IntegrateBox'
+import IntegrateBox from '../../codebases/UT-HAI/client-deliberation/src/components/IntegrateBox'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

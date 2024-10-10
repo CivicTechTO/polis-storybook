@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'theme-ui'
 import compdemAdminTheme from '../codebases/compdem/client-admin/src/theme'
-import haiDelibTheme from '../polis-UT-HAI/client-deliberation/src/theme'
+import haiDelibTheme from '../codebases/UT-HAI/client-deliberation/src/theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import configureStore from '../codebases/compdem/client-admin/src/store'
 

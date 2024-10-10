@@ -1,5 +1,5 @@
 import React from 'react'
-import VisualisationTutorial from '../../polis-UT-HAI/client-deliberation/src/components/VisualisationTutorial'
+import VisualisationTutorial from '../../codebases/UT-HAI/client-deliberation/src/components/VisualisationTutorial'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {

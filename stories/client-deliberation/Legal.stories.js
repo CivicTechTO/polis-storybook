@@ -1,5 +1,5 @@
 import React from 'react'
-import Legal from '../../polis-UT-HAI/client-deliberation/src/components/Legal'
+import Legal from '../../codebases/UT-HAI/client-deliberation/src/components/Legal'
 import { withDelibThemeUi } from '../../.storybook/decorators'
 
 export default {
