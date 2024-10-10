@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import Strings from '../../polis/client-participation/js/strings/en_us'
+import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
 import { animated, useTransition } from '@react-spring/web'
 import commentsData from '../../.storybook/data/3ntrtcehas-comments.json'
 import useMeasure from 'react-use-measure'
