@@ -1,6 +1,6 @@
 import React from 'react'
-import Logomark from '../../polis/client-admin/src/components/framework/logomark'
-import settings from '../../polis/client-admin/src/settings'
+import Logomark from '../../codebases/compdem/client-admin/src/components/framework/logomark'
+import settings from '../../codebases/compdem/client-admin/src/settings'
 
 export default {
   title: 'Client-Admin/Logomark',

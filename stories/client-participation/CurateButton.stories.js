@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import * as globals from '../../polis/client-participation/vis2/components/globals'
-import { Button as CurateButton } from '../../polis/client-participation/vis2/components/curate'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
+import { Button as CurateButton } from '../../codebases/compdem/client-participation/vis2/components/curate'
 
 export default {
   title: 'Client-Participation/CurateButton',

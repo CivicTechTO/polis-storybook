@@ -1,5 +1,5 @@
 import React from 'react'
-import GraphParticipants from '../../polis/client-participation/vis2/components/graphParticipants'
+import GraphParticipants from '../../codebases/compdem/client-participation/vis2/components/graphParticipants'
 import socialAvatar from '../../.storybook/assets/avatar-sample.jpg'
 import defaultAvatar from '../../.storybook/assets/avatar-default.png'
 

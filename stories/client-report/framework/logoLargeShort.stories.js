@@ -1,7 +1,7 @@
 import React from 'react'
-import LogoLargeShort from '../../../polis/client-report/src/components/framework/logoLargeShort'
+import LogoLargeShort from '../../../codebases/compdem/client-report/src/components/framework/logoLargeShort'
 
-import '../../../polis/client-report/src/index.css';
+import '../../../codebases/compdem/client-report/src/index.css';
 
 export default {
   title: 'Client-Report/LogoLargeShort',

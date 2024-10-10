@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import TidCarousel from '../../polis/client-participation/vis2/components/tidCarousel'
-import Strings from '../../polis/client-participation/js/strings/en_us'
+import TidCarousel from '../../codebases/compdem/client-participation/vis2/components/tidCarousel'
+import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
 
 import commentsData from '../../.storybook/data/3ntrtcehas-comments.json'
 

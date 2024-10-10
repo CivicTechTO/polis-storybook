@@ -1,5 +1,5 @@
 import React from 'react'
-import BarChart from '../../polis/client-participation/vis2/components/barChart'
+import BarChart from '../../codebases/compdem/client-participation/vis2/components/barChart'
 import { getMath } from '../../.storybook/utils'
 import { svgDecorator } from '../../.storybook/decorators'
 

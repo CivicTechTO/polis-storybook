@@ -1,5 +1,5 @@
 import React from 'react'
-import Spinner from '../../polis/client-admin/src/components/framework/spinner'
+import Spinner from '../../codebases/compdem/client-admin/src/components/framework/spinner'
 
 export default {
   title: 'Client-Admin/Spinner',

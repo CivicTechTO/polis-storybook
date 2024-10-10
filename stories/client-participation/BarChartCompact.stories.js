@@ -1,8 +1,8 @@
 import React from 'react'
-import BarChartCompact from '../../polis/client-participation/vis2/components/barChartCompact'
+import BarChartCompact from '../../codebases/compdem/client-participation/vis2/components/barChartCompact'
 import { getMath } from '../../.storybook/utils'
 import { svgDecorator } from '../../.storybook/decorators'
-import * as globals from '../../polis/client-participation/vis2/components/globals'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
 
 const mathResult = getMath()
 const getGroupIds = (mathResult) => (mathResult['group-clusters'].map(g => g.id))

@@ -1,8 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import * as globals from '../../polis/client-participation/vis2/components/globals'
-import Strings from '../../polis/client-participation/js/strings/en_us'
-import Curate from '../../polis/client-participation/vis2/components/curate'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
+import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
+import Curate from '../../codebases/compdem/client-participation/vis2/components/curate'
 import { getMath } from '../../.storybook/utils'
 
 const mathResults = getMath()

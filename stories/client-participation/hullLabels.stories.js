@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Label as HullLabel } from '../../polis/client-participation/vis2/components/hullLabels'
+import { Label as HullLabel } from '../../codebases/compdem/client-participation/vis2/components/hullLabels'
 import { svgDecorator } from '../../.storybook/decorators'
 
 export default {
