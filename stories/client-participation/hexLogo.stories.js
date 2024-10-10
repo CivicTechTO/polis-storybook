@@ -1,5 +1,5 @@
 import React from 'react'
-import HexLogo from '../../polis/client-participation/vis2/components/hexLogo'
+import HexLogo from '../../codebases/compdem/client-participation/vis2/components/hexLogo'
 
 export default {
   title: 'Client-Participation/HexLogo',

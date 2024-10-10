@@ -1,8 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from 'theme-ui'
-import theme from '../polis/client-admin/src/theme'
+import theme from '../codebases/compdem/client-admin/src/theme'
 import { Provider as ReduxProvider } from 'react-redux'
-import configureStore from '../polis/client-admin/src/store'
+import configureStore from '../codebases/compdem/client-admin/src/store'
 
 const store = configureStore()
 

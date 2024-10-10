@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateUser from '../../polis/client-admin/src/components/landers/createuser'
+import CreateUser from '../../codebases/compdem/client-admin/src/components/landers/createuser'
 import { withThemeUi, withRedux } from '../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router'
 

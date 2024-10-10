@@ -1,7 +1,7 @@
 import React from 'react'
-import Footer from '../../../polis/client-report/src/components/framework/Footer'
+import Footer from '../../../codebases/compdem/client-report/src/components/framework/Footer'
 
-import '../../../polis/client-report/src/index.css'
+import '../../../codebases/compdem/client-report/src/index.css'
 
 export default {
   title: 'Client-Report/Footer',

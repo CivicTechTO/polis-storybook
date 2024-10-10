@@ -1,8 +1,8 @@
 import React from 'react'
-import Heading from '../../../polis/client-report/src/components/framework/heading'
+import Heading from '../../../codebases/compdem/client-report/src/components/framework/heading'
 import { getConversation } from '../../../.storybook/utils'
 
-import '../../../polis/client-report/src/index.css';
+import '../../../codebases/compdem/client-report/src/index.css';
 
 export default {
   title: 'Client-Report/Heading',

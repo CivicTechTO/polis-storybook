@@ -1,8 +1,8 @@
 import React from 'react'
-import Checkbox from '../../../polis/client-report/src/components/framework/checkbox'
-import settings from '../../../polis/client-report/src/settings'
+import Checkbox from '../../../codebases/compdem/client-report/src/components/framework/checkbox'
+import settings from '../../../codebases/compdem/client-report/src/settings'
 
-import '../../../polis/client-report/src/index.css';
+import '../../../codebases/compdem/client-report/src/index.css';
 
 export default {
   title: 'Client-Report/Checkbox (buggy)',

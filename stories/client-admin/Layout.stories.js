@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../polis/client-admin/src/components/landers/lander-layout'
+import Layout from '../../codebases/compdem/client-admin/src/components/landers/lander-layout'
 import { withThemeUi } from '../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router';
 

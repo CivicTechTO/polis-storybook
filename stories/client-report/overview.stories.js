@@ -1,8 +1,8 @@
 import React from 'react'
-import Overview from '../../polis/client-report/src/components/overview'
+import Overview from '../../codebases/compdem/client-report/src/components/overview'
 import { getMath, getConversation } from '../../.storybook/utils'
 
-import '../../polis/client-report/src/index.css';
+import '../../codebases/compdem/client-report/src/index.css';
 
 export default {
   title: 'Client-Report/Overview',

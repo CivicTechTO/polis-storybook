@@ -1,8 +1,8 @@
 import React from 'react'
-import * as globals from '../../polis/client-participation/vis2/components/globals'
-import { DataSentence } from '../../polis/client-participation/vis2/components/exploreTid'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
+import { DataSentence } from '../../codebases/compdem/client-participation/vis2/components/exploreTid'
 import { getMath } from '../../.storybook/utils'
-import Strings from '../../polis/client-participation/js/strings/en_us'
+import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
 
 const mathResults = getMath()
 
