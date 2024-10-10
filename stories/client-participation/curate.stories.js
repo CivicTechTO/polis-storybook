@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
 import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
@@ -12,10 +12,26 @@ export default {
   component: Curate
 }
 
-const Template = (args) => <Curate {...args} />
+const Template = (args) => {
+  const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
+  const handleCurateButtonClick = (tidCuration) => {
+    action("Clicked")(tidCuration)
+    setSelectedTidCuration(tidCuration)
+  }
+  return <Curate {...{selectedTidCuration, handleCurateButtonClick}} {...args} />
+}
 
-export const Default = Template.bind({})
-Default.args = {
+export const Interactive = Template.bind({})
+Interactive.args = {
+  Strings: {
+    majorityOpinion: Strings.majorityOpinion,
+    group_123: Strings.group_123
+  },
+  math: mathResults,
+}
+
+export const Unselected = Template.bind({})
+Unselected.args = {
   selectedTidCuration: null,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,
@@ -27,12 +43,12 @@ Default.args = {
 
 export const MajoritySelected = Template.bind({})
 MajoritySelected.args = {
-  ...Default.args,
+  ...Unselected.args,
   selectedTidCuration: globals.tidCuration.majority
 }
 
 export const GroupSelected = Template.bind({})
 GroupSelected.args = {
-  ...Default.args,
+  ...Unselected.args,
   selectedTidCuration: 1
 }
