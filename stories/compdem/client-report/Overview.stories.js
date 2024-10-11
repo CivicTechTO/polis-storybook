@@ -1,11 +1,10 @@
 import React from 'react'
-import Overview from '../../codebases/compdem/client-report/src/components/overview'
-import { getMath, getConversation } from '../../.storybook/utils'
+import Overview from '../../../codebases/compdem/client-report/src/components/overview'
+import { getMath, getConversation } from '../../../.storybook/utils'
 
-import '../../codebases/compdem/client-report/src/index.css';
+import '../../../codebases/compdem/client-report/src/index.css';
 
 export default {
-  title: 'Client-Report/Overview',
   component: Overview,
 }
 

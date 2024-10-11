@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { BarChartCompact } from '../../../codebases/compdem/client-report/src/components/lists/commentList.js'
+import { BarChartCompact } from '../../../../codebases/compdem/client-report/src/components/lists/commentList.js'
 
-import participationData from '../../../.storybook/data/3ntrtcehas-participation-init.json'
+import participationData from '../../../../.storybook/data/3ntrtcehas-participation-init.json'
 const pcaData = JSON.parse(participationData.pca)
 
 export default {
-  title: 'Client-Report/BarChartCompact',
   component: BarChartCompact,
 }
 

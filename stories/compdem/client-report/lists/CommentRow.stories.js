@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { CommentRow } from '../../../codebases/compdem/client-report/src/components/lists/commentList.js'
+import { CommentRow } from '../../../../codebases/compdem/client-report/src/components/lists/commentList.js'
 
-import participationData from '../../../.storybook/data/3ntrtcehas-participation-init.json'
+import participationData from '../../../../.storybook/data/3ntrtcehas-participation-init.json'
 const pcaData = JSON.parse(participationData.pca)
 
 export default {
-  title: 'Client-Report/CommentRow',
   component: CommentRow,
 }
 

@@ -1,12 +1,11 @@
 import React from 'react'
-import BarChart from '../../codebases/compdem/client-report/src/components/barChart'
-import { getMath } from '../../.storybook/utils'
-import { svgDecorator } from '../../.storybook/decorators'
+import BarChart from '../../../codebases/compdem/client-report/src/components/barChart'
+import { getMath } from '../../../.storybook/utils'
+import { svgDecorator } from '../../../.storybook/decorators'
 
 const mathResults = getMath()
 
 export default {
-  title: 'Client-Report/BarChart',
   component: BarChart,
   decorators: [svgDecorator],
 }
