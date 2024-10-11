@@ -1,0 +1,13 @@
+import React from 'react'
+import TutorialsBox from '../../../codebases/UT-HAI/client-deliberation/src/components/TutorialsBox'
+import { withDelibThemeUi } from '../../../.storybook/decorators'
+
+export default {
+  component: TutorialsBox,
+  decorators: [withDelibThemeUi],
+}
+
+const Template = (args) => <div>Not Yet Implemented</div>
+
+export const Default = Template.bind({})
+Default.args = {}
