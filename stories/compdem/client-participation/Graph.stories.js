@@ -1,10 +1,10 @@
 import React from 'react'
 import Graph from '../../../codebases/compdem/client-participation/vis2/components/graph'
-import { getMath } from '../../../.storybook/utils'
+import { getComments, getMath } from '../../../.storybook/utils'
 import Strings from '../../../codebases/compdem/client-participation/js/strings/en_us'
-import commentsData from '../../../.storybook/data/3ntrtcehas-comments.json'
 import { action } from '@storybook/addon-actions'
 
+const commentsData = getComments()
 const mathResult = getMath()
 
 export default {
