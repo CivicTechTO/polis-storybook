@@ -13,7 +13,7 @@ export default {
 }
 
 const Template = (args) => {
-  const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
+  const [selectedTidCuration, setSelectedTidCuration] = useState(null)
   const handleCurateButtonClick = (tidCuration) => {
     action("Clicked")(tidCuration)
     setSelectedTidCuration(tidCuration)
