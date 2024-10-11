@@ -1,9 +1,8 @@
 import React from 'react'
-import Footer from '../../codebases/compdem/client-admin/src/components/landers/lander-footer'
-import { withThemeUi } from '../../.storybook/decorators'
+import Footer from '../../../codebases/compdem/client-admin/src/components/landers/lander-footer'
+import { withThemeUi } from '../../../.storybook/decorators'
 
 export default {
-  title: 'Client-Admin/Footer',
   component: Footer,
   decorators: [withThemeUi],
 }

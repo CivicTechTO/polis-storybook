@@ -1,9 +1,8 @@
 import React from 'react'
-import KnowledgeBase from '../../codebases/compdem/client-admin/src/components/landers/knowledgeBase'
-import { withThemeUi } from '../../.storybook/decorators'
+import KnowledgeBase from '../../../codebases/compdem/client-admin/src/components/landers/knowledgeBase'
+import { withThemeUi } from '../../../.storybook/decorators'
 
 export default {
-  title: 'Client-Admin/KnowledgeBase',
   component: KnowledgeBase,
   decorators: [withThemeUi],
 }

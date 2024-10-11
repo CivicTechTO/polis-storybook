@@ -1,10 +1,9 @@
 import React from 'react'
-import SignIn from '../../codebases/compdem/client-admin/src/components/landers/signin'
-import { withThemeUi, withRedux } from '../../.storybook/decorators'
+import SignIn from '../../../codebases/compdem/client-admin/src/components/landers/signin'
+import { withThemeUi, withRedux } from '../../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router'
 
 export default {
-  title: 'Client-Admin/SignIn',
   component: SignIn,
   decorators: [withThemeUi, withRedux, withRouter],
 }

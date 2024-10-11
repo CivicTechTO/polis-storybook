@@ -1,10 +1,9 @@
 import React from 'react'
-import Press from '../../codebases/compdem/client-admin/src/components/landers/press'
-import { withThemeUi } from '../../.storybook/decorators'
+import Press from '../../../codebases/compdem/client-admin/src/components/landers/press'
+import { withThemeUi } from '../../../.storybook/decorators'
 import { withRouter } from 'storybook-addon-remix-react-router';
 
 export default {
-  title: 'Client-Admin/Press',
   component: Press,
   decorators: [withThemeUi, withRouter],
 }
