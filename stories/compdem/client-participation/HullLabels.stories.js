@@ -1,10 +1,10 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Label as HullLabel } from '../../codebases/compdem/client-participation/vis2/components/hullLabels'
-import { svgDecorator } from '../../.storybook/decorators'
+import { Label as HullLabel } from '../../../codebases/compdem/client-participation/vis2/components/hullLabels'
+import { svgDecorator } from '../../../.storybook/decorators'
 
 export default {
-  title: 'Client-Participation/HullLabel (fix styling)',
+  title: 'compdem/client-participation/HullLabel (fix styling)',
   component: HullLabel,
   decorators: [svgDecorator],
 }

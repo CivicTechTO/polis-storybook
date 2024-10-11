@@ -1,8 +1,8 @@
 import React from 'react'
-import BarChartCompact from '../../codebases/compdem/client-participation/vis2/components/barChartCompact'
-import { getMath } from '../../.storybook/utils'
-import { svgDecorator } from '../../.storybook/decorators'
-import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
+import BarChartCompact from '../../../codebases/compdem/client-participation/vis2/components/barChartCompact'
+import { getMath } from '../../../.storybook/utils'
+import { svgDecorator } from '../../../.storybook/decorators'
+import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
 
 const mathResult = getMath()
 const getGroupIds = (mathResult) => (mathResult['group-clusters'].map(g => g.id))
@@ -13,7 +13,6 @@ const getGroupLabels = (mathResult) => (
 const groupIndexFromName = (groupName) => globals.groupLabels.indexOf(groupName)
 
 export default {
-  title: 'Client-Participation/BarChartCompact',
   component: BarChartCompact,
   decorators: [svgDecorator],
   argTypes: {

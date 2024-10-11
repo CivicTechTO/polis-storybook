@@ -1,10 +1,9 @@
 import React from 'react'
-import { Participant as GraphParticipant } from '../../codebases/compdem/client-participation/vis2/components/graphParticipants'
-import socialAvatar from '../../.storybook/assets/avatar-sample.jpg'
-import defaultAvatar from '../../.storybook/assets/avatar-default.png'
+import { Participant as GraphParticipant } from '../../../codebases/compdem/client-participation/vis2/components/graphParticipants'
+import socialAvatar from '../../../.storybook/assets/avatar-sample.jpg'
+import defaultAvatar from '../../../.storybook/assets/avatar-default.png'
 
 export default {
-  title: 'Client-Participation/GraphParticipant',
   component: GraphParticipant,
   decorators: [
     // Adds desaturation filter that exists in parent Graph SVG component.

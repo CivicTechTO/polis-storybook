@@ -1,8 +1,7 @@
 import React from 'react'
-import Gear from '../../codebases/compdem/client-participation/vis2/components/gear'
+import Gear from '../../../codebases/compdem/client-participation/vis2/components/gear'
 
 export default {
-  title: 'Client-Participation/Gear',
   component: Gear,
 }
 

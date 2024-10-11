@@ -1,7 +1,7 @@
 import React from 'react'
-import GraphParticipants from '../../codebases/compdem/client-participation/vis2/components/graphParticipants'
-import socialAvatar from '../../.storybook/assets/avatar-sample.jpg'
-import defaultAvatar from '../../.storybook/assets/avatar-default.png'
+import GraphParticipants from '../../../codebases/compdem/client-participation/vis2/components/graphParticipants'
+import socialAvatar from '../../../.storybook/assets/avatar-sample.jpg'
+import defaultAvatar from '../../../.storybook/assets/avatar-default.png'
 
 const positionVariants = {
   1: [{x: 50, y: 75}, {x: 75, y: 25}],
@@ -9,7 +9,6 @@ const positionVariants = {
 }
 
 export default {
-  title: 'Client-Participation/GraphParticipants',
   component: GraphParticipants,
   decorators: [
     // Adds desaturation filter that exists in parent Graph SVG component.

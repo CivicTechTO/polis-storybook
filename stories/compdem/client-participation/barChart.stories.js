@@ -1,12 +1,12 @@
 import React from 'react'
-import BarChart from '../../codebases/compdem/client-participation/vis2/components/barChart'
-import { getMath } from '../../.storybook/utils'
-import { svgDecorator } from '../../.storybook/decorators'
+import BarChart from '../../../codebases/compdem/client-participation/vis2/components/barChart'
+import { getMath } from '../../../.storybook/utils'
+import { svgDecorator } from '../../../.storybook/decorators'
 
 const mathResults = getMath()
 
 export default {
-  title: 'Client-Participation/BarChart (unused)',
+  title: 'compdem/client-participation/BarChart (unused)',
   component: BarChart,
   decorators: [svgDecorator],
 }

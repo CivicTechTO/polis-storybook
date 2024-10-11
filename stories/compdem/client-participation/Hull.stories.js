@@ -1,9 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Hull } from '../../codebases/compdem/client-participation/vis2/components/hull'
+import { Hull } from '../../../codebases/compdem/client-participation/vis2/components/hull'
 
 export default {
-  title: 'Client-Participation/Hull',
   component: Hull,
   decorators: [
     (Story) => (

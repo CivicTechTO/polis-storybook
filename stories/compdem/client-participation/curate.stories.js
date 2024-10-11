@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
-import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
-import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
-import Curate from '../../codebases/compdem/client-participation/vis2/components/curate'
-import { getMath } from '../../.storybook/utils'
+import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
+import Strings from '../../../codebases/compdem/client-participation/js/strings/en_us'
+import Curate from '../../../codebases/compdem/client-participation/vis2/components/curate'
+import { getMath } from '../../../.storybook/utils'
 
 const mathResults = getMath()
 
 export default {
-  title: 'Client-Participation/Curate',
   component: Curate
 }
 

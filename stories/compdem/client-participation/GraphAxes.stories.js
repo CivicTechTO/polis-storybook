@@ -1,9 +1,8 @@
 import React from 'react'
-import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
-import GraphAxes from '../../codebases/compdem/client-participation/vis2/components/graphAxes'
+import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
+import GraphAxes from '../../../codebases/compdem/client-participation/vis2/components/graphAxes'
 
 export default {
-  title: 'Client-Participation/GraphAxes',
   component: GraphAxes,
   decorators: [
     (Story) => (

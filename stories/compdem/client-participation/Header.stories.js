@@ -1,8 +1,7 @@
 import React from 'react'
-import Header from '../../codebases/compdem/client-participation/vis2/components/header'
+import Header from '../../../codebases/compdem/client-participation/vis2/components/header'
 
 export default {
-  title: 'Client-Participation/Header',
   component: Header,
 }
 
