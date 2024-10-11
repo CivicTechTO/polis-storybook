@@ -2,9 +2,11 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
 import { animated, useTransition } from '@react-spring/web'
-import commentsData from '../../.storybook/data/3ntrtcehas-comments.json'
+import { getComments, getMath } from '../../.storybook/utils'
 import useMeasure from 'react-use-measure'
 
+const mathResult = getMath()
+const commentsData = getComments()
 commentsData.sort((a,b) => a.tid - b.tid)
 
 const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerWidth }) => {
@@ -103,8 +105,8 @@ export default {
   title: 'Client-Participation/TidCarouselV2',
   component: TidCarouselV2,
   argTypes: {
-    group: {
-      options: ['Majority', 'A', 'B', 'C', 'D'],
+    selectedTidCuration: {
+      options: ['majority', 0, 1, 2, 3],
       control: { type: 'inline-radio' },
     },
   },
@@ -112,32 +114,36 @@ export default {
 
 const Template = (args) => {
   const [selectedComment, setSelectedComment] = React.useState(null)
-  const NUMBERS_DATA = {
-    Majority: [1,19,20,31,36,33,37,42,43,52],
-    A: [2,4,5,18,49],
-    B: [2,4,5,18,22],
-    C: [3,9,17,25,33],
-    D: [59],
-  }
+  const commentsByGroup = Object.assign({},
+    mathResult.repness,
+    {
+      "majority": [
+        ...mathResult.consensus.agree,
+        ...mathResult.consensus.disagree,
+      ],
+    }
+  )
 
   const handleCommentClick = (c) => {
     setSelectedComment(c)
     action("Clicked")(c)
   }
-  const commentsToShow = commentsData.filter(c => NUMBERS_DATA[args.group].includes(c.tid))
-  if (!NUMBERS_DATA[args.group].includes(selectedComment?.tid)) {
+  const commentsToShow = commentsData
+    .filter(c => commentsByGroup[args.selectedTidCuration]
+      ?.map(i => i.tid).includes(c.tid)
+  )
+  if (!commentsToShow.map(c => c.tid).includes(selectedComment?.tid)) {
     handleCommentClick(commentsToShow[0])
   }
   return <TidCarouselV2 {...args} {...{
     handleCommentClick,
     selectedComment,
-    commentsToShow: commentsToShow,
+    commentsToShow,
   }} />
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  group: 'Majority',
+export const Interactive = Template.bind({})
+Interactive.args = {
   selectedTidCuration: 1,
   allComments: commentsData,
   Strings,
