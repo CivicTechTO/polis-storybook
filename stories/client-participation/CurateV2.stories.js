@@ -27,7 +27,7 @@ const CurateV2Button = ({isSelected, onCurateButtonClick, style, children}) => {
     color: isSelected ? "white" : colors.darkGray,
   }
   return (
-    <button style={buttonStyle} onClick={onCurateButtonClick}>
+    <button style={buttonStyle} role="tab" aria-selected={isSelected} onClick={onCurateButtonClick}>
       {children}
     </button>
   )
@@ -55,7 +55,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
   const groups = ['A', 'B', 'C', 'D', 'E']
   
   return(
-    <div style={styles.container}>
+    <div style={styles.container} role="tablist">
       <div style={styles.groupContainer}>
         {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
           <CurateV2Button
