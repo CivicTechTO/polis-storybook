@@ -1,0 +1,14 @@
+import React from 'react'
+import Home from '../../../codebases/compdem/client-admin/src/components/landers/home'
+import { withThemeUi } from '../../../.storybook/decorators'
+import { withRouter } from 'storybook-addon-remix-react-router'
+
+export default {
+  component: Home,
+  decorators: [withRouter, withThemeUi],
+}
+
+const Template = (args) => <Home {...args} />
+
+export const Default = Template.bind({})
+Default.args = {}

@@ -8,6 +8,7 @@ const config = {
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     "storybook-addon-remix-react-router",
