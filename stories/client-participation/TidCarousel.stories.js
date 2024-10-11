@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import TidCarousel from '../../codebases/compdem/client-participation/vis2/components/tidCarousel'
+import * as globals from '../../codebases/compdem/client-participation/vis2/components/globals'
 import Strings from '../../codebases/compdem/client-participation/js/strings/en_us'
+import { getMath, getComments } from '../../.storybook/utils'
 
-import commentsData from '../../.storybook/data/3ntrtcehas-comments.json'
+const mathResults = getMath()
 
+const commentsData = getComments()
 commentsData.sort((a,b) => a.tid - b.tid)
 
 const pluckNBetweenLowerUpper = (n, lower, upper) => {
@@ -23,10 +26,44 @@ const pluckNBetweenLowerUpper = (n, lower, upper) => {
 
 export default {
   title: 'Client-Participation/TidCarousel',
-  component: TidCarousel
+  component: TidCarousel,
+  argTypes: {
+    selectedTidCuration: {
+      options: [null, "majority", 0, 1, 2, 3],
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
-const Template = (args) => <TidCarousel {...args} />
+const Template = (args) => {
+  const [selectedComment, setSelectedComment] = useState(null)
+  const handleCommentClick = (comment) => () => {
+    action("Clicked")(comment)
+    setSelectedComment(comment)
+  }
+
+  const commentsByGroup = Object.assign({},
+    mathResults.repness,
+    {
+      "majority": [
+        ...mathResults.consensus.agree,
+        ...mathResults.consensus.disagree,
+      ],
+    }
+  )
+  const commentsToShow = commentsData
+    .filter(c => commentsByGroup[args.selectedTidCuration]
+      ?.map(i => i.tid).includes(c.tid)
+    )
+
+  return <TidCarousel {...{handleCommentClick, selectedComment, commentsToShow}} {...args} />
+}
+
+export const Interactive = Template.bind({})
+Interactive.args = {
+  selectedTidCuration: 0,
+  Strings,
+}
 
 export const Default = Template.bind({})
 Default.args = {
@@ -38,7 +75,7 @@ Default.args = {
   // onClick={() => this.props.handleCommentClick(c)}
   // not just
   // onClick={this.props.handleCommentClick(c)}
-  handleCommentClick: () => action("Clicked"),
+  handleCommentClick: (c) => () => action("Clicked")(c),
   Strings,
 }
 
