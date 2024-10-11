@@ -81,10 +81,17 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
 
 export default {
   title: 'Client-Participation/CurateV2',
-  component: CurateV2
+  component: CurateV2,
+  argTypes: {
+    groupCount: {
+      options: [2, 3, 4],
+      control: { type: 'inline-radio' },
+    }
+  }
 }
 
-const Template = (args) => {
+const Template = ({ groupCount, ...args }) => {
+  args.math["group-clusters"] = mathResults["group-clusters"].slice(0, groupCount)
   const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
   const handleCurateButtonClick = (tidCuration) => {
     action("Clicked")(tidCuration)
@@ -95,6 +102,7 @@ const Template = (args) => {
 
 export const Interactive = Template.bind({})
 Interactive.args = {
+  groupCount: 4,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,
     group_123: Strings.group_123
