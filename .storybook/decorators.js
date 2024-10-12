@@ -1,13 +1,20 @@
 import React from 'react'
 import { ThemeProvider } from 'theme-ui'
-import theme from '../codebases/compdem/client-admin/src/theme'
+import compdemAdminTheme from '../codebases/compdem/client-admin/src/theme'
+import haiDelibTheme from '../codebases/UT-HAI/client-deliberation/src/theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import configureStore from '../codebases/compdem/client-admin/src/store'
 
 const store = configureStore()
 
 export const withThemeUi = (Story) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={compdemAdminTheme}>
+    <Story />
+  </ThemeProvider>
+)
+
+export const withDelibThemeUi = (Story) => (
+  <ThemeProvider theme={haiDelibTheme}>
     <Story />
   </ThemeProvider>
 )

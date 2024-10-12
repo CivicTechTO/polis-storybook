@@ -1,0 +1,8 @@
+/** To remove weird spacing in indented lists of MSX. **/
+.sbdocs-content :where(
+  ul:not(
+    .sb-anchor, .sb-unstyled, .sb-unstyled ul
+  )
+) :first-of-type {
+    margin-bottom: 0;
+}
