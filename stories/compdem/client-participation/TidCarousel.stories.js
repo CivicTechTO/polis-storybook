@@ -54,7 +54,11 @@ const Template = (args) => {
       ?.map(i => i.tid).includes(c.tid)
     )
 
-  return <TidCarousel {...{handleCommentClick, selectedComment, commentsToShow}} {...args} />
+  return <TidCarousel {...{
+    handleCommentClick,
+    selectedComment,
+    commentsToShow
+  }} {...args} />
 }
 
 export const Interactive = Template.bind({})

@@ -62,6 +62,7 @@ const TidCarouselV2 = ({
   handleCommentClick,
   Strings,
 }) => {
+  // TODO: Why doesn't this line avoid infinite renders when null?
   if ( selectedTidCuration === null ) return null
   const [ref, bounds] = useMeasure()
 
@@ -79,6 +80,7 @@ const TidCarouselV2 = ({
       gap: 5,
       rowGap: 5,
       flexWrap: "wrap",
+      justifyContent: "flex-start",
     }}>
       {!bounds.width || allComments.map((c, i) => (
         <TidCarouselButton

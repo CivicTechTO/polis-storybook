@@ -6,12 +6,13 @@ import TidCarouselV2 from './TidCarouselV2'
 
 const mathResult = getMath()
 const commentsData = getComments()
-commentsData.sort((a,b) => a.tid - b.tid)
 
 export default {
   component: TidCarouselV2,
   argTypes: {
     selectedTidCuration: {
+      // TODO: Figure out why null does infinite renders.
+      // options: [null, 'majority', 0, 1, 2, 3],
       options: ['majority', 0, 1, 2, 3],
       control: { type: 'inline-radio' },
     },
