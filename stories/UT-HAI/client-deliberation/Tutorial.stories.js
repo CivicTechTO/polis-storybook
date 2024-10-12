@@ -8,6 +8,10 @@ export default {
   decorators: [withDelibThemeUi],
   argTypes: {
     currentIndexpage: {
+      options: [0, 1, 2],
+      control: { type: 'inline-radio' },
+    },
+    tutorialprogress: {
       options: [0, 1, 2, 3],
       control: { type: 'inline-radio' },
     },
@@ -18,10 +22,10 @@ const Template = (args) => <Tutorial {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  email: null,
-  currentIndex: 0,
   tutorialprogress: 0,
-  setCurrentIndex: action("Set index!"),
   currentIndexpage: 0,
-  setnextButtonState: () => {},
+  email: "foo@example.com",
+  currentIndex: 1,
+  setCurrentIndex: action("setCurrentIndex!"),
+  setnextButtonState: action("setnextButtonState!"),
 }

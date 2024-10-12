@@ -7,6 +7,7 @@ export default {
   decorators: [withDelibThemeUi],
 }
 
+// Needs to have "route params" passed in to work.
 const Template = (args) => <div>Not Yet Implemented</div>
 
 export const Default = Template.bind({})

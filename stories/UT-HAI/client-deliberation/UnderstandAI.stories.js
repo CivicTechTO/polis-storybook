@@ -5,9 +5,22 @@ import { withDelibThemeUi } from '../../../.storybook/decorators'
 export default {
   component: UnderstandAI,
   decorators: [withDelibThemeUi],
+  argTypes: {
+    currentIndex: {
+      options: [0, 1, 2, 3, 4, 5],
+      control: { type: "inline-radio" },
+    },
+  },
 }
 
-const Template = (args) => <div>Not Yet Implemented</div>
+const Template = (args) => <UnderstandAI {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  currentIndex: 0,
+}
+
+export const ZoomStep = Template.bind({})
+ZoomStep.args = {
+  currentIndex: 5,
+}

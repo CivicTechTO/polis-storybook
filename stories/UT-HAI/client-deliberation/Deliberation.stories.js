@@ -7,7 +7,9 @@ export default {
   decorators: [withDelibThemeUi],
 }
 
-const Template = (args) => <div>Not Yet Implemented</div>
+const Template = (args) => <Deliberation {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  tutorialprogress: 0,
+}
