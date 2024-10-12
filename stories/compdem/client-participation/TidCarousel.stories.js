@@ -6,7 +6,7 @@ import Strings from '../../../codebases/compdem/client-participation/js/strings/
 import { getMath, getComments } from '../../../.storybook/utils'
 
 const mathResults = getMath()
-const commentsData = getComments()
+const commentsData = getComments().sort((a, b) => a.tid - b.tid)
 
 const pluckNBetweenLowerUpper = (n, lower, upper) => {
   let numbers = []
@@ -18,7 +18,7 @@ const pluckNBetweenLowerUpper = (n, lower, upper) => {
   }
   // Ascending integer sort.
   numbers.sort((a, b) => a - b)
-  
+
   return numbers
 }
 
@@ -80,10 +80,49 @@ Default.args = {
   Strings,
 }
 
-export const Hidden = Template.bind({})
-Hidden.args = {
-  ...Default.args,
-  selectedTidCuration: null,
+export const Empty = Template.bind({})
+Empty.args = {
+  commentsToShow: [],
+  selectedTidCuration: globals.tidCuration.majority,
+  selectedComment: null,
+  // TODO: Pretty sure this is janky. It should be simply action("Clicked")
+  // and the prop in tidCarousel should be:
+  // onClick={() => this.props.handleCommentClick(c)}
+  // not just
+  // onClick={this.props.handleCommentClick(c)}
+  handleCommentClick: (c) => () => action("Clicked")(c),
+  Strings,
+}
+
+export const OneStatement = Template.bind({})
+OneStatement.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(1, 0, 25).map(i => ({ tid: i })),
+}
+
+export const FiveStatements = Template.bind({})
+FiveStatements.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(5, 0, 25).map(i => ({ tid: i })),
+}
+
+export const SixStatements = Template.bind({})
+SixStatements.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(6, 0, 25).map(i => ({ tid: i })),
+}
+
+export const TenStatements = Template.bind({})
+TenStatements.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(10, 0, 25).map(i => ({ tid: i })),
+}
+
+export const Selected = Template.bind({})
+Selected.args = {
+  ...Empty.args,
+  commentsToShow: commentsData.slice(10,20),
+  selectedComment: commentsData[11],
 }
 
 // TODO: Load dataset with hundreds/thousands of comments.
@@ -93,31 +132,23 @@ Hidden.args = {
 //  commentsToShow: commentsData.slice(95,105),
 //}
 
-export const StatementSelected = Template.bind({})
-StatementSelected.args = {
-  ...Default.args,
-  selectedComment: { tid: commentsData[11].tid }
-}
-
-export const FewStatements = Template.bind({})
-FewStatements.args = {
-  ...Default.args,
-  commentsToShow: commentsData.slice(10,15),
-}
-
-export const Pagination = Template.bind({})
-Pagination.args = {
-  ...Default.args,
-  commentsToShow: commentsData.slice(10,40),
-}
+// export const Pagination = Template.bind({})
+// Pagination.args = {
+//   ...Default.args,
+//   commentsToShow: commentsData.slice(10,40),
+// }
 
 export const UpToDoubleDigits = Template.bind({})
 UpToDoubleDigits.args = {
   ...Default.args,
-  commentsToShow: [
-    ...pluckNBetweenLowerUpper(10, 0, commentsData.length-1).map(i => commentsData[i])
-  ]
-} 
+  commentsToShow: pluckNBetweenLowerUpper(10, 0, 100).map(i => ({ tid: i })),
+}
+
+export const UpToTripleDigits = Template.bind({})
+UpToTripleDigits.args = {
+  ...Default.args,
+  commentsToShow: pluckNBetweenLowerUpper(10, 0, 400).map(i => ({ tid: i })),
+}
 
 export const NoGroupSelectedSoHidden = Template.bind({})
 NoGroupSelectedSoHidden.args = {

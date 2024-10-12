@@ -8,6 +8,20 @@ import { getMath, getComments } from '../../../../.storybook/utils'
 const mathResults = getMath()
 const commentsData = getComments()
 
+const pluckNBetweenLowerUpper = (n, lower, upper) => {
+  let numbers = []
+  while (numbers.length < n) {
+    let candidate = Math.floor(Math.random() * (upper - lower)) + (lower + 1)
+    if (!numbers.includes(candidate)) {
+      numbers.push(candidate)
+    }
+  }
+  // Ascending integer sort.
+  numbers.sort((a, b) => a - b)
+
+  return numbers
+}
+
 export default {
   component: TidCarouselV2Static,
 }
@@ -73,20 +87,20 @@ OneStatement.args = {
   commentsToShow: commentsData.slice(10,11),
 }
 
-export const FullFirstRow = Template.bind({})
-FullFirstRow.args = {
+export const FiveStatements = Template.bind({})
+FiveStatements.args = {
   ...Empty.args,
   commentsToShow: commentsData.slice(10,15),
 }
 
-export const StartSecondRow = Template.bind({})
-StartSecondRow.args = {
+export const SixStatements = Template.bind({})
+SixStatements.args = {
   ...Empty.args,
   commentsToShow: commentsData.slice(10,16),
 }
 
-export const FullSecondRow = Template.bind({})
-FullSecondRow.args = {
+export const TenStatements = Template.bind({})
+TenStatements.args = {
   ...Empty.args,
   commentsToShow: commentsData.slice(10,20),
 }
@@ -96,4 +110,16 @@ Selected.args = {
   ...Empty.args,
   commentsToShow: commentsData.slice(10,20),
   selectedComment: commentsData[11],
+}
+
+export const UpToDoubleDigits = Template.bind({})
+UpToDoubleDigits.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(10, 0, 100).map(i => ({ tid: i })),
+}
+
+export const UpToTripleDigits = Template.bind({})
+UpToTripleDigits.args = {
+  ...Empty.args,
+  commentsToShow: pluckNBetweenLowerUpper(10, 0, 400).map(i => ({ tid: i })),
 }

@@ -30,7 +30,7 @@ const TidCarouselV2Static = ({
   handleCommentClick,
   Strings,
 }) => {
-  const commentsToShowTids = commentsToShow.map(c => c.tid)
+  const commentsToShowTids = commentsToShow.map(c => c.tid).sort((a, b) => a - b)
 
   const buttonHeight = 25
   const gap = 5
