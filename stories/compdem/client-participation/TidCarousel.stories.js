@@ -7,7 +7,6 @@ import { getMath, getComments } from '../../../.storybook/utils'
 
 const mathResults = getMath()
 const commentsData = getComments()
-commentsData.sort((a,b) => a.tid - b.tid)
 
 const pluckNBetweenLowerUpper = (n, lower, upper) => {
   let numbers = []
@@ -25,12 +24,6 @@ const pluckNBetweenLowerUpper = (n, lower, upper) => {
 
 export default {
   component: TidCarousel,
-  argTypes: {
-    selectedTidCuration: {
-      options: [null, "majority", 0, 1, 2, 3],
-      control: { type: 'inline-radio' },
-    },
-  },
 }
 
 const Template = (args) => {
@@ -66,10 +59,16 @@ Interactive.args = {
   selectedTidCuration: 0,
   Strings,
 }
+Interactive.argTypes = {
+  selectedTidCuration: {
+    options: [null, "majority", 0, 1, 2, 3],
+    control: { type: 'inline-radio' },
+  },
+}
 
 export const Default = Template.bind({})
 Default.args = {
-  selectedTidCuration: 1,
+  selectedTidCuration: undefined,
   commentsToShow: commentsData.slice(10,20),
   selectedComment: null,
   // TODO: Pretty sure this is janky. It should be simply action("Clicked")
@@ -79,6 +78,12 @@ Default.args = {
   // onClick={this.props.handleCommentClick(c)}
   handleCommentClick: (c) => () => action("Clicked")(c),
   Strings,
+}
+
+export const Hidden = Template.bind({})
+Hidden.args = {
+  ...Default.args,
+  selectedTidCuration: null,
 }
 
 // TODO: Load dataset with hundreds/thousands of comments.
