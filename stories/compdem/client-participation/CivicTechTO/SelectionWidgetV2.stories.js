@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
-import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
-import Strings from '../../../codebases/compdem/client-participation/js/strings/en_us'
-import { getMath, getComments } from '../../../.storybook/utils'
+import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
+import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
+import { getMath, getComments } from '../../../../.storybook/utils'
 import TidCarouselV2 from './TidCarouselV2'
 import CurateV2 from './CurateV2'
 

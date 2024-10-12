@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import Strings from '../../../codebases/compdem/client-participation/js/strings/en_us'
-import { getComments, getMath } from '../../../.storybook/utils'
+import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
+import { getComments, getMath } from '../../../../.storybook/utils'
 import TidCarouselV2 from './TidCarouselV2'
 
 const mathResult = getMath()

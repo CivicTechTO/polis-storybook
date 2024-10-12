@@ -1,5 +1,5 @@
 import React from 'react'
-import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
+import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
 
 export const CurateV2Button = ({isSelected, onCurateButtonClick, style, children}) => {
   const colors = {
