@@ -4,6 +4,7 @@ import TidCarouselV2Static from './TidCarouselV2Static'
 import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getMath, getComments } from '../../../../.storybook/utils'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResults = getMath()
 const commentsData = getComments()
@@ -24,6 +25,7 @@ const pluckNBetweenLowerUpper = (n, lower, upper) => {
 
 export default {
   component: TidCarouselV2Static,
+  decorators: [withParticipationThemeUi],
 }
 
 const Template = (args) => {

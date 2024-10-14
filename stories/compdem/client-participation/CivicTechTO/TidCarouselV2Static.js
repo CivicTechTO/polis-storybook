@@ -1,25 +1,26 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+
 import React from "react"
 
-const Button = ({ isSelected, style, children, handleClick }) => {
-  const colors = {
-    polisBlue: "#03a9f4",
-    darkGray: "rgb(100,100,100)",
-    lightGray: "rgb(235,235,235)",
+const TidCarouselButton = ({ isSelected, children, handleClick, width, height }) => {
+  const styles = {
+    button: {
+      border: 0,
+      cursor: "pointer",
+      borderRadius: 4,
+      fontSize: 14,
+      letterSpacing: 0.75,
+      boxSizing: "border-box",
+      textShadow: isSelected ? "0 0 .65px white" : null,
+      backgroundColor: isSelected ? "polisBlue" : "lightGray",
+      color: isSelected ? "white" : "darkGray",
+      flex: `1 0 ${width}`,
+      maxWidth: width,
+      height: height,
+    }
   }
-  const buttonStyle = {
-    ...style,
-    border: 0,
-    cursor: "pointer",
-    borderRadius: 4,
-    fontSize: 14,
-    // padding: "6px 12px",
-    letterSpacing: 0.75,
-    // fontWeight: isSelected ? 700 : 500,
-    textShadow: isSelected ? "0 0 .65px #fff" : null,
-    backgroundColor: isSelected ? colors.polisBlue : colors.lightGray,
-    color: isSelected ? "white" : colors.darkGray,
-  }
-  return <button style={buttonStyle} onClick={handleClick}>{children}</button>
+  return <button sx={styles.button} onClick={handleClick}>{children}</button>
 }
 
 const TidCarouselV2Static = ({
@@ -35,34 +36,30 @@ const TidCarouselV2Static = ({
   const buttonHeight = 25
   const gap = 5
   const cols = 5
+  const maxStatements = 10
+  const rows = Math.ceil(maxStatements/cols)
   // Example: calc(20%-4px)
   const buttonWidthCalc = `calc(${100/cols}% - ${gap*((cols-1)/cols)}px)`
   const styles = {
     container: {
-      height: buttonHeight*2 + gap,
+      height: buttonHeight*rows + gap*(rows-1),
       display: "flex",
-      flexWrap: "wrap",
-      gap: gap,
+      flexWrap: "wrap", 
+      gap: `${gap}px`,
       justifyContent: "flex-start",
     },
-    button: {
-      flex: `1 0 ${buttonWidthCalc}`,
-      maxWidth: buttonWidthCalc,
-      height: buttonHeight,
-      boxSizing: "border-box",
-    }
   }
   return (
-    <div style={styles.container}>
+    <div sx={styles.container}>
       {commentsToShowTids.map(tid => (
-        <Button
-          style={styles.button}
+        <TidCarouselButton
+          width={buttonWidthCalc}
+          height={buttonHeight}
           key={tid}
           isSelected={selectedComment?.tid === tid}
           handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
-        >
-          {tid}
-        </Button>
+          children={tid}
+        />
       ))}
     </div>
   )
