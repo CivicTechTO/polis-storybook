@@ -4,11 +4,13 @@ import * as globals from '../../../../codebases/compdem/client-participation/vis
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import CurateV2 from './CurateV2'
 import { getMath } from '../../../../.storybook/utils'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResults = getMath()
 
 export default {
   component: CurateV2,
+  decorators: [withParticipationThemeUi],
   argTypes: {
     groupCount: {
       options: [2, 3, 4],

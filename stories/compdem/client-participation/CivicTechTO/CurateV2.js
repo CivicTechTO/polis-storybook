@@ -1,46 +1,44 @@
+/** @jsx jsx */
+import { jsx, Box } from 'theme-ui'
+
 import React from 'react'
 import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
 
-export const CurateV2Button = ({isSelected, onCurateButtonClick, style, children}) => {
-  const colors = {
-    polisBlue: "#03a9f4",
-    darkGray: "rgb(100,100,100)",
-    lightGray: "rgb(235,235,235)",
-  }
+export const CurateV2Button = React.forwardRef(({isSelected, onCurateButtonClick, style, children}, ref) => {
   const buttonStyle = {
     ...style,
-    border: 0,
-    cursor: "pointer",
-    borderRadius: 4,
     fontSize: 14,
-    padding: "6px 12px",
+    height: 35,
     letterSpacing: 0.75,
-    // fontWeight: isSelected ? 700 : 500,
+    variant: isSelected ? "buttons.primary" : "buttons.secondary",
     textShadow: isSelected ? "0 0 .65px #fff" : null,
-    backgroundColor: isSelected ? colors.polisBlue : colors.lightGray,
-    color: isSelected ? "white" : colors.darkGray,
   }
   return (
-    <button style={buttonStyle} role="tab" aria-selected={isSelected} onClick={onCurateButtonClick}>
+    <Box as="button" ref={ref} sx={buttonStyle} onClick={onCurateButtonClick}>
       {children}
-    </button>
+    </Box>
   )
-}
+})
 
 const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math}) => {
   const GROUP_COUNT = math["group-clusters"].length
   const styles = {
     container: {
       display: "flex",
-      flexDirection: "column",
-      rowGap: 5,
+      flexDirection: ["column-reverse", "row"],
+      gap: "5px",
+      rowGap: "5px",
     },
     groupContainer: {
       display: "flex",
-      gap: 5,
+      flex: [1, "1 1 66.667%"],
+      gap: "5px",
     },
     groupButton: {
       flex: 1,
+    },
+    majorityContainer: {
+      flex: [1, "1 1 33.333%"],
     },
     majorityButton: {
       width: "100%",
@@ -49,26 +47,26 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
   const groups = ['A', 'B', 'C', 'D', 'E']
   
   return(
-    <div style={styles.container} role="tablist">
-      <div style={styles.groupContainer}>
+    <div sx={styles.container}>
+      <div sx={styles.majorityContainer}>
+        <CurateV2Button
+          onCurateButtonClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
+          isSelected={selectedTidCuration === globals.tidCuration.majority}
+          style={styles.majorityButton}
+          children="Diverse Majority Opinion"
+        />
+      </div>
+      <div sx={styles.groupContainer}>
         {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
           <CurateV2Button
             key={groupLabel}
             onCurateButtonClick={() => handleCurateButtonClick(index)}
             isSelected={selectedTidCuration === index}
             style={styles.groupButton}
-          >
-            {groupLabel}
-          </CurateV2Button>
+            children={groupLabel}
+          />
         ))}
       </div>
-      <CurateV2Button
-        onCurateButtonClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
-        isSelected={selectedTidCuration === globals.tidCuration.majority}
-        style={styles.majorityButton}
-      >
-        Diverse Majority Opinion
-      </CurateV2Button>
     </div>
   )
 }
