@@ -3,20 +3,20 @@ import { jsx } from 'theme-ui'
 
 import React from "react"
 
-const TidCarouselButton = ({ isSelected, children, handleClick, width, height }) => {
+const TidCarouselButton = ({ isSelected, children, handleClick, widths, height }) => {
   const styles = {
     button: {
+      // variant: isSelected ? "button.primary" : "button.secondary",
       border: 0,
       cursor: "pointer",
       borderRadius: 4,
       fontSize: 14,
       letterSpacing: 0.75,
-      boxSizing: "border-box",
       textShadow: isSelected ? "0 0 .65px white" : null,
       backgroundColor: isSelected ? "polisBlue" : "lightGray",
       color: isSelected ? "white" : "darkGray",
-      flex: `1 0 ${width}`,
-      maxWidth: width,
+      flex: widths.map(w => (`1 0 ${w}`)),
+      maxWidth: widths,
       height: height,
     }
   }
@@ -35,14 +35,16 @@ const TidCarouselV2Static = ({
 
   const buttonHeight = 25
   const gap = 5
-  const cols = 5
-  const maxStatements = 10
-  const rows = Math.ceil(maxStatements/cols)
+  const getRows = cols => {
+    const maxStatements = 10
+    return Math.ceil(maxStatements/cols)
+  }
   // Example: calc(20%-4px)
-  const buttonWidthCalc = `calc(${100/cols}% - ${gap*((cols-1)/cols)}px)`
+  const getButtonWidthCalc = cols => `calc(${100/cols}% - ${gap*((cols-1)/cols)}px)`
+  const getContainerHeight = cols => buttonHeight*getRows(cols) + gap*(getRows(cols)-1)
   const styles = {
     container: {
-      height: buttonHeight*rows + gap*(rows-1),
+      height: [getContainerHeight(5), getContainerHeight(10)],
       display: "flex",
       flexWrap: "wrap", 
       gap: `${gap}px`,
@@ -53,7 +55,7 @@ const TidCarouselV2Static = ({
     <div sx={styles.container}>
       {commentsToShowTids.map(tid => (
         <TidCarouselButton
-          width={buttonWidthCalc}
+          widths={[getButtonWidthCalc(5), getButtonWidthCalc(10)]}
           height={buttonHeight}
           key={tid}
           isSelected={selectedComment?.tid === tid}
