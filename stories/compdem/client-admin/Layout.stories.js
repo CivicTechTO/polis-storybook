@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../../../codebases/compdem/client-admin/src/components/landers/lander-layout'
-import { withThemeUi } from '../../../.storybook/decorators'
-import { withRouter } from 'storybook-addon-remix-react-router';
+import { withThemeUi, withRouter } from '../../../.storybook/decorators'
 
 export default {
   component: Layout,
