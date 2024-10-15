@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box } from 'theme-ui'
+import * as Tabs from "@radix-ui/react-tabs"
 
 import React from "react"
 
@@ -54,16 +55,24 @@ const TidCarouselV2Static = ({
     },
   }
   return (
-    <div sx={styles.container}>
-      {commentsToShowTids.map(tid => (
-        <TidCarouselButton
-          key={tid}
-          style={styles.button}
-          isSelected={selectedComment?.tid === tid}
-          handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
-          children={tid}
-        />
-      ))}
+    <div>
+      <Tabs.Root defaultValue={`statement-${commentsToShowTids[0]}`} activationMode="manual">
+        <Tabs.List aria-label="Group X Statements" sx={styles.container}>
+          {commentsToShowTids.map(tid => (
+            <Tabs.Trigger key={tid} value={`statement-${tid}`} asChild>
+              <TidCarouselButton
+                style={styles.button}
+                isSelected={selectedComment?.tid === tid}
+                handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
+                children={tid}
+              />
+            </Tabs.Trigger>
+          ))}
+        </Tabs.List>
+        {commentsToShowTids.map(tid => (
+          <Tabs.Content key={tid} value={`statement-${tid}`}>Statement {tid}...</Tabs.Content>
+        ))}
+      </Tabs.Root>
     </div>
   )
 }
