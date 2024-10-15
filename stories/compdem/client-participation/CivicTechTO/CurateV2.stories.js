@@ -32,6 +32,7 @@ const Template = ({ groupCount, ...args }) => {
 export const Interactive = Template.bind({})
 Interactive.args = {
   groupCount: 4,
+  isAccessible: true,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,
     group_123: Strings.group_123
@@ -41,6 +42,7 @@ Interactive.args = {
 
 export const Unselected = Template.bind({})
 Unselected.args = {
+  isAccessible: true,
   selectedTidCuration: null,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,

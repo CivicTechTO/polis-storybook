@@ -56,7 +56,7 @@ const SelectionWidgetV2 = ({isStatic, isAccessible, math}) => {
   return (
     <div style={styles.container}>
       <CurateV2
-        {...{ selectedTidCuration, handleCurateButtonClick, math }}
+        {...{ selectedTidCuration, handleCurateButtonClick, math, isAccessible }}
       />
       <TidCarouselComponent
         {...{ selectedTidCuration, selectedComment, handleCommentClick, isAccessible }}

@@ -22,7 +22,7 @@ export const CurateV2Button = React.forwardRef(({isSelected, handleClick, style,
   )
 })
 
-const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math}) => {
+const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math, isAccessible = false}) => {
   const GROUP_COUNT = math["group-clusters"].length
   const styles = {
     container: {
@@ -51,35 +51,59 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
   const groups = ['A', 'B', 'C', 'D', 'E']
   
   return(
-    // <div>
-      <Tabs.Root defaultValue="group-majority" activationMode="manual">
-        <Tabs.List aria-label="Groups" sx={styles.container}>
-          <div sx={styles.majorityContainer}>
-            <Tabs.Trigger value="group-majority" asChild>
-              <CurateV2Button
-                handleClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
-                isSelected={selectedTidCuration === globals.tidCuration.majority}
-                style={styles.majorityButton}
-                children="Diverse Majority Opinion"
-              />
-            </Tabs.Trigger>
-            </div>
-          <div sx={styles.groupContainer}>
-            {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
-              <Tabs.Trigger key={index} value={`group-${index}`} asChild>
+    isAccessible 
+      ? (
+        <Tabs.Root defaultValue="group-majority" activationMode="manual">
+          <Tabs.List aria-label="Groups" sx={styles.container}>
+            <div sx={styles.majorityContainer}>
+              <Tabs.Trigger value="group-majority" asChild>
                 <CurateV2Button
-                  key={groupLabel}
-                  handleClick={() => handleCurateButtonClick(index)}
-                  isSelected={selectedTidCuration === index}
-                  style={styles.groupButton}
-                  children={groupLabel}
+                  handleClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
+                  isSelected={selectedTidCuration === globals.tidCuration.majority}
+                  style={styles.majorityButton}
+                  children="Diverse Majority Opinion"
                 />
               </Tabs.Trigger>
+              </div>
+            <div sx={styles.groupContainer}>
+              {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
+                <Tabs.Trigger key={index} value={`group-${index}`} asChild>
+                  <CurateV2Button
+                    key={groupLabel}
+                    handleClick={() => handleCurateButtonClick(index)}
+                    isSelected={selectedTidCuration === index}
+                    style={styles.groupButton}
+                    children={groupLabel}
+                  />
+                </Tabs.Trigger>
+              ))}
+            </div>
+          </Tabs.List>
+        </Tabs.Root>
+      )
+      : (
+        <div sx={styles.container}>
+          <div sx={styles.majorityContainer}>
+            <CurateV2Button
+              handleClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
+              isSelected={selectedTidCuration === globals.tidCuration.majority}
+              style={styles.majorityButton}
+              children="Diverse Majority Opinion"
+            />
+          </div>
+          <div sx={styles.groupContainer}>
+            {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
+              <CurateV2Button
+                key={groupLabel}
+                handleClick={() => handleCurateButtonClick(index)}
+                isSelected={selectedTidCuration === index}
+                style={styles.groupButton}
+                children={groupLabel}
+              />
             ))}
           </div>
-        </Tabs.List>
-      </Tabs.Root>
-    // </div>
+        </div>
+      )
   )
 }
 
