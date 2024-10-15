@@ -11,7 +11,7 @@ import CurateV2 from './CurateV2'
 const mathResult = getMath()
 const commentsData = getComments()
 
-const SelectionWidgetV2 = ({isStatic, math}) => {
+const SelectionWidgetV2 = ({isStatic, isAccessible, math}) => {
   const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
   const [selectedComment, setSelectedComment] = useState(null)
 
@@ -59,7 +59,7 @@ const SelectionWidgetV2 = ({isStatic, math}) => {
         {...{ selectedTidCuration, handleCurateButtonClick, math }}
       />
       <TidCarouselComponent
-        {...{ selectedTidCuration, selectedComment, handleCommentClick }}
+        {...{ selectedTidCuration, selectedComment, handleCommentClick, isAccessible }}
         allComments={commentsData}
         commentsToShow={commentsToShow}
       />
@@ -89,5 +89,6 @@ const Template = (args) => {
 export const Interactive = Template.bind({})
 Interactive.args = {
   isStatic: true,
+  isAccessible: true,
   math: mathResult,
 }

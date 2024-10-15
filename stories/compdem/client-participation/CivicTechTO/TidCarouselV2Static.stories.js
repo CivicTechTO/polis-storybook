@@ -59,6 +59,7 @@ const Template = (args) => {
 
 export const Interactive = Template.bind({})
 Interactive.args = {
+  isAccessible: true,
   selectedTidCuration: 0,
   Strings,
 }
@@ -71,6 +72,7 @@ Interactive.argTypes = {
 
 export const Empty = Template.bind({})
 Empty.args = {
+  isAccessible: true,
   commentsToShow: [],
   selectedTidCuration: null,
   selectedComment: null,
