@@ -1,7 +1,6 @@
 import React from 'react'
 import CreateUser from '../../../codebases/compdem/client-admin/src/components/landers/createuser'
-import { withThemeUi, withRedux } from '../../../.storybook/decorators'
-import { withRouter } from 'storybook-addon-remix-react-router'
+import { withThemeUi, withRedux, withRouter } from '../../../.storybook/decorators'
 
 export default {
   component: CreateUser,

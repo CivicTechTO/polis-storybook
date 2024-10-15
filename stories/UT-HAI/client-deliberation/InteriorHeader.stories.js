@@ -1,8 +1,6 @@
 import React from 'react'
 import InteriorHeader from '../../../codebases/UT-HAI/client-deliberation/src/components/interior-header'
-import { withDelibThemeUi } from '../../../.storybook/decorators'
-import { withRouter } from 'storybook-addon-remix-react-router'
-
+import { withDelibThemeUi, withRouter } from '../../../.storybook/decorators'
 
 export default {
   component: InteriorHeader,
