@@ -3,7 +3,7 @@ import { jsx, Box } from 'theme-ui'
 
 import React from "react"
 
-const TidCarouselButton = ({ isSelected, children, handleClick, widths, height }) => {
+const TidCarouselButton = React.forwardRef(({ isSelected, children, handleClick, widths, height, ...rest }, ref) => {
   const styles = {
     button: {
       fontSize: 14,
@@ -15,8 +15,8 @@ const TidCarouselButton = ({ isSelected, children, handleClick, widths, height }
       height: height,
     }
   }
-  return <Box as="button" sx={styles.button} onClick={handleClick}>{children}</Box>
-}
+  return <Box ref={ref} as="button" sx={styles.button} onClick={handleClick} {...rest}>{children}</Box>
+})
 
 const TidCarouselV2Static = ({
   selectedTidCuration,
@@ -50,9 +50,9 @@ const TidCarouselV2Static = ({
     <div sx={styles.container}>
       {commentsToShowTids.map(tid => (
         <TidCarouselButton
+          key={tid}
           widths={[getButtonWidthCalc(5), getButtonWidthCalc(10)]}
           height={buttonHeight}
-          key={tid}
           isSelected={selectedComment?.tid === tid}
           handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
           children={tid}
