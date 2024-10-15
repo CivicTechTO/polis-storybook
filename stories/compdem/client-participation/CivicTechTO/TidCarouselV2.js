@@ -26,7 +26,7 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
         onClick={handleClick}
         style={{
           width: style.width,
-          height: 30,
+          height: 25,
           marginRight: style.marginRight,
           // fontSize changes seem slow. Scale span instead.
           // fontSize: style.fontSize,
@@ -75,7 +75,7 @@ const TidCarouselV2 = ({
       display: "flex",
       flex: 1,
       width: "100%",
-      height: 65,
+      height: 55,
       paddingX: 0,
       gap: 5,
       rowGap: 5,
