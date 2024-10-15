@@ -3,13 +3,15 @@ import { action } from '@storybook/addon-actions'
 import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getMath, getComments } from '../../../../.storybook/utils'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 import TidCarouselV2 from './TidCarouselV2'
+import TidCarouselV2Static from './TidCarouselV2Static'
 import CurateV2 from './CurateV2'
 
 const mathResult = getMath()
 const commentsData = getComments()
 
-const SelectionWidgetV2 = ({math}) => {
+const SelectionWidgetV2 = ({isStatic, math}) => {
   const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
   const [selectedComment, setSelectedComment] = useState(null)
 
@@ -50,12 +52,13 @@ const SelectionWidgetV2 = ({math}) => {
       rowGap: 5,
     }
   }
+  const TidCarouselComponent = isStatic ? TidCarouselV2Static : TidCarouselV2
   return (
     <div style={styles.container}>
       <CurateV2
         {...{ selectedTidCuration, handleCurateButtonClick, math }}
       />
-      <TidCarouselV2
+      <TidCarouselComponent
         {...{ selectedTidCuration, selectedComment, handleCommentClick }}
         allComments={commentsData}
         commentsToShow={commentsToShow}
@@ -66,6 +69,12 @@ const SelectionWidgetV2 = ({math}) => {
 
 export default {
   component: SelectionWidgetV2,
+  decorators: [withParticipationThemeUi],
+  argTypes: {
+    isStatic: {
+      type: "boolean",
+    }
+  }
 }
 
 const Template = (args) => {
@@ -78,5 +87,6 @@ const Template = (args) => {
 
 export const Interactive = Template.bind({})
 Interactive.args = {
+  isStatic: true,
   math: mathResult,
 }
