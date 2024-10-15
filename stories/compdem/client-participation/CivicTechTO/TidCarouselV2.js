@@ -85,7 +85,7 @@ const TidCarouselV2 = ({
       {!bounds.width || allComments.map((c, i) => (
         <TidCarouselButton
           containerWidth={bounds.width}
-          id={c.tid}
+          key={c.tid}
           label={c.tid}
           handleClick={handleCommentClick(c)}
           isSelected={selectedComment && selectedComment.tid === c.tid}
