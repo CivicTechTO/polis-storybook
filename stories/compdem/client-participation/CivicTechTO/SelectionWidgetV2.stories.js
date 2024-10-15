@@ -80,6 +80,7 @@ export default {
 const Template = (args) => {
   // TODO: Figure out how to make this sticky at the bottom
   return <div style={{
+    maxWidth: "608px",
   }}>
     <SelectionWidgetV2 {...args} />
   </div>
