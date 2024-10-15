@@ -16,7 +16,10 @@ export const withThemeUi = (Story) => (
 
 const customParticipationTheme = Object.assign({}, compdemAdminTheme)
 customParticipationTheme.fonts.body = "Arial"
-customParticipationTheme.buttons["secondary"] = {
+customParticipationTheme.buttons.primary.border = 0
+customParticipationTheme.buttons.primary.borderRadius = 4
+customParticipationTheme.buttons.secondary = {
+  ...customParticipationTheme.buttons.primary,
   color: 'darkGray',
   bg: 'lightGray',
   fontFamily: 'body',

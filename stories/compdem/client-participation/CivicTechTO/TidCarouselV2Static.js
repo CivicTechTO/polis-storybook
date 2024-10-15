@@ -1,26 +1,21 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Box } from 'theme-ui'
 
 import React from "react"
 
 const TidCarouselButton = ({ isSelected, children, handleClick, widths, height }) => {
   const styles = {
     button: {
-      // variant: isSelected ? "button.primary" : "button.secondary",
-      border: 0,
-      cursor: "pointer",
-      borderRadius: 4,
       fontSize: 14,
       letterSpacing: 0.75,
+      variant: isSelected ? "buttons.primary" : "buttons.secondary",
       textShadow: isSelected ? "0 0 .65px white" : null,
-      backgroundColor: isSelected ? "polisBlue" : "lightGray",
-      color: isSelected ? "white" : "darkGray",
       flex: widths.map(w => (`1 0 ${w}`)),
       maxWidth: widths,
       height: height,
     }
   }
-  return <button sx={styles.button} onClick={handleClick}>{children}</button>
+  return <Box as="button" sx={styles.button} onClick={handleClick}>{children}</Box>
 }
 
 const TidCarouselV2Static = ({
