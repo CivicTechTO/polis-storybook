@@ -31,7 +31,7 @@ const Template = (args) => {
     }
   )
 
-  const handleCommentClick = (c) => {
+  const handleCommentClick = (c) => () => {
     setSelectedComment(c)
     action("Clicked")(c)
   }

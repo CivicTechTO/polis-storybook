@@ -37,7 +37,7 @@ const SelectionWidgetV2 = ({math}) => {
     setSelectedTidCuration(tidCuration)
   }
 
-  const handleCommentClick = (c) => {
+  const handleCommentClick = (c) => () => {
     setSelectedComment(c)
     action("Clicked")(c)
   }

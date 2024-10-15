@@ -87,7 +87,7 @@ const TidCarouselV2 = ({
           containerWidth={bounds.width}
           id={c.tid}
           label={c.tid}
-          handleClick={() => handleCommentClick(c)}
+          handleClick={handleCommentClick(c)}
           isSelected={selectedComment && selectedComment.tid === c.tid}
           isShown={commentsToShowTids.includes(c.tid)}
         />
