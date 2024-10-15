@@ -4,17 +4,18 @@ import { jsx, Box } from 'theme-ui'
 import React from 'react'
 import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
 
-export const CurateV2Button = React.forwardRef(({isSelected, onCurateButtonClick, style, children}, ref) => {
-  const buttonStyle = {
-    ...style,
-    fontSize: 14,
-    height: 35,
-    letterSpacing: 0.75,
-    variant: isSelected ? "buttons.primary" : "buttons.secondary",
-    textShadow: isSelected ? "0 0 .65px #fff" : null,
+export const CurateV2Button = React.forwardRef(({isSelected, handleClick, style, children, ...rest}, ref) => {
+  const styles = {
+    button: {
+      ...style,
+      fontSize: 14,
+      letterSpacing: 0.75,
+      variant: isSelected ? "buttons.primary" : "buttons.secondary",
+      textShadow: isSelected ? "0 0 .65px #fff" : null,
+    },
   }
   return (
-    <Box as="button" ref={ref} sx={buttonStyle} onClick={onCurateButtonClick}>
+    <Box as="button" ref={ref} sx={styles.button} onClick={handleClick} {...rest}>
       {children}
     </Box>
   )
@@ -35,12 +36,14 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
       gap: "5px",
     },
     groupButton: {
+      height: 35,
       flex: 1,
     },
     majorityContainer: {
       flex: [1, "1 1 33.333%"],
     },
     majorityButton: {
+      height: 35,
       width: "100%",
     },
   }
@@ -50,7 +53,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
     <div sx={styles.container}>
       <div sx={styles.majorityContainer}>
         <CurateV2Button
-          onCurateButtonClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
+          handleClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
           isSelected={selectedTidCuration === globals.tidCuration.majority}
           style={styles.majorityButton}
           children="Diverse Majority Opinion"
@@ -60,7 +63,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
         {groups.slice(0, GROUP_COUNT).map((groupLabel, index) => (
           <CurateV2Button
             key={groupLabel}
-            onCurateButtonClick={() => handleCurateButtonClick(index)}
+            handleClick={() => handleCurateButtonClick(index)}
             isSelected={selectedTidCuration === index}
             style={styles.groupButton}
             children={groupLabel}

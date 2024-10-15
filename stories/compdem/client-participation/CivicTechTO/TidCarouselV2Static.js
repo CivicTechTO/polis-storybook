@@ -3,19 +3,21 @@ import { jsx, Box } from 'theme-ui'
 
 import React from "react"
 
-const TidCarouselButton = React.forwardRef(({ isSelected, children, handleClick, widths, height, ...rest }, ref) => {
+const TidCarouselButton = React.forwardRef(({ isSelected, handleClick, style, children, ...rest }, ref) => {
   const styles = {
     button: {
+      ...style,
       fontSize: 14,
       letterSpacing: 0.75,
       variant: isSelected ? "buttons.primary" : "buttons.secondary",
       textShadow: isSelected ? "0 0 .65px white" : null,
-      flex: widths.map(w => (`1 0 ${w}`)),
-      maxWidth: widths,
-      height: height,
     }
   }
-  return <Box ref={ref} as="button" sx={styles.button} onClick={handleClick} {...rest}>{children}</Box>
+  return (
+    <Box as="button" ref={ref} sx={styles.button} onClick={handleClick} {...rest}>
+      {children}
+    </Box>
+  )
 })
 
 const TidCarouselV2Static = ({
@@ -45,14 +47,18 @@ const TidCarouselV2Static = ({
       gap: `${gap}px`,
       justifyContent: "flex-start",
     },
+    button: {
+      height: buttonHeight,
+      flex: [`1 0 ${getButtonWidthCalc(5)}`, `1 0 ${getButtonWidthCalc(10)}`],
+      maxWidth: [getButtonWidthCalc(5), getButtonWidthCalc(10)],
+    },
   }
   return (
     <div sx={styles.container}>
       {commentsToShowTids.map(tid => (
         <TidCarouselButton
           key={tid}
-          widths={[getButtonWidthCalc(5), getButtonWidthCalc(10)]}
-          height={buttonHeight}
+          style={styles.button}
           isSelected={selectedComment?.tid === tid}
           handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
           children={tid}
