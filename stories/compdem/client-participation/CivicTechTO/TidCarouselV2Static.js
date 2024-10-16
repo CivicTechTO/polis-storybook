@@ -28,7 +28,7 @@ const TidCarouselV2Static = ({
   handleCommentClick,
   Strings,
 }) => {
-  const commentsToShowTids = commentsToShow.map(c => c.tid).sort((a, b) => a - b)
+  commentsToShow.sort((a, b) => a.tid - b.tid)
 
   const buttonHeight = 25
   const gap = 5
@@ -55,13 +55,13 @@ const TidCarouselV2Static = ({
   }
   return (
     <div sx={styles.container}>
-      {commentsToShowTids.map(tid => (
+      {commentsToShow.map((c, i) => (
         <TidCarouselButton
-          key={tid}
           style={styles.button}
-          isSelected={selectedComment?.tid === tid}
-          handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
-          children={tid}
+          key={c.tid}
+          children={c.tid}
+          handleClick={handleCommentClick(c)}
+          isSelected={selectedComment?.tid === c.tid}
         />
       ))}
     </div>

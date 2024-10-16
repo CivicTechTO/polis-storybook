@@ -67,7 +67,6 @@ const TidCarouselV2Animated = ({
   const [ref, bounds] = useMeasure()
 
   allComments = allComments.sort((a, b) => a.tid - b.tid)
-  const commentsToShowTids = commentsToShow.map(c => c.tid)
 
   // ref not available on first render, so only render map after bounds exists.
   return (
@@ -88,8 +87,8 @@ const TidCarouselV2Animated = ({
           key={c.tid}
           label={c.tid}
           handleClick={handleCommentClick(c)}
-          isSelected={selectedComment && selectedComment.tid === c.tid}
-          isShown={commentsToShowTids.includes(c.tid)}
+          isSelected={selectedComment?.tid === c.tid}
+          isShown={commentsToShow.some(cts => cts.tid == c.tid)}
         />
       ))}
     </div>
