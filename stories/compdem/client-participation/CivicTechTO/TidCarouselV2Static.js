@@ -72,9 +72,9 @@ const TidCarouselV2Static = React.forwardRef(({
                 </Tabs.Trigger>
               ))}
             </Tabs.List>
-            {commentsToShowTids.map(tid => (
+            {/* {commentsToShowTids.map(tid => (
               <Tabs.Content key={tid} value={`statement-${tid}`}>Statement {tid}...</Tabs.Content>
-            ))}
+            ))} */}
           </Tabs.Root>
         </div>
       )
