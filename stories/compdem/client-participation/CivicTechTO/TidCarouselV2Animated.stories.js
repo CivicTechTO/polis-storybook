@@ -2,16 +2,19 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getComments, getMath } from '../../../../.storybook/utils'
-import TidCarouselV2 from './TidCarouselV2'
+import TidCarouselV2Animated from './TidCarouselV2Animated'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResult = getMath()
 const commentsData = getComments()
-commentsData.sort((a,b) => a.tid - b.tid)
 
 export default {
-  component: TidCarouselV2,
+  component: TidCarouselV2Animated,
+  decorators: [withParticipationThemeUi],
   argTypes: {
     selectedTidCuration: {
+      // TODO: Figure out why null does infinite renders.
+      // options: [null, 'majority', 0, 1, 2, 3],
       options: ['majority', 0, 1, 2, 3],
       control: { type: 'inline-radio' },
     },
@@ -30,7 +33,7 @@ const Template = (args) => {
     }
   )
 
-  const handleCommentClick = (c) => {
+  const handleCommentClick = (c) => () => {
     setSelectedComment(c)
     action("Clicked")(c)
   }
@@ -41,7 +44,7 @@ const Template = (args) => {
   if (!commentsToShow.map(c => c.tid).includes(selectedComment?.tid)) {
     handleCommentClick(commentsToShow[0])
   }
-  return <TidCarouselV2 {...args} {...{
+  return <TidCarouselV2Animated {...args} {...{
     handleCommentClick,
     selectedComment,
     commentsToShow,
