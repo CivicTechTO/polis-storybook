@@ -30,7 +30,7 @@ const TidCarouselV2Static = React.forwardRef(({
   isAccessible = false,
   Strings,
 }, ref) => {
-  const commentsToShowTids = commentsToShow.map(c => c.tid).sort((a, b) => a - b)
+  commentsToShow.sort((a, b) => a.tid - b.tid)
 
   const buttonHeight = 25
   const gap = 5
@@ -61,13 +61,13 @@ const TidCarouselV2Static = React.forwardRef(({
         <div ref={ref}>
           <Tabs.Root value={`statement-${selectedComment?.tid}`} activationMode="manual">
             <Tabs.List aria-label="Group X Statements" sx={styles.container}>
-              {commentsToShowTids.map(tid => (
-                <Tabs.Trigger key={tid} value={`statement-${tid}`} asChild>
+              {commentsToShow.map(c => (
+                <Tabs.Trigger key={c.tid} value={`statement-${c.tid}`} asChild>
                   <TidCarouselButton
                     style={styles.button}
-                    isSelected={selectedComment?.tid === tid}
-                    handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
-                    children={tid}
+                    children={c.tid}
+                    isSelected={selectedComment?.tid === c.tid}
+                    handleClick={handleCommentClick(c)}
                   />
                 </Tabs.Trigger>
               ))}
@@ -80,13 +80,13 @@ const TidCarouselV2Static = React.forwardRef(({
       )
       : (
         <div ref={ref} sx={styles.container}>
-          {commentsToShowTids.map(tid => (
+          {commentsToShow.map(c => (
             <TidCarouselButton
-              key={tid}
               style={styles.button}
-              isSelected={selectedComment?.tid === tid}
-              handleClick={handleCommentClick(commentsToShow.find(c => c.tid === tid))}
-              children={tid}
+              key={c.tid}
+              children={c.tid}
+              handleClick={handleCommentClick(c)}
+              isSelected={selectedComment?.tid === c.tid}
             />
           ))}
         </div>

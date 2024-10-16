@@ -33,7 +33,7 @@ const CurateV2 = React.forwardRef(({selectedTidCuration, handleCurateButtonClick
     },
     groupContainer: {
       display: "flex",
-      flex: [1, "1 1 66.667%"],
+      flex: [1, "1 1 calc(2*100% / 3)"],
       gap: "5px",
     },
     groupButton: {
@@ -41,7 +41,7 @@ const CurateV2 = React.forwardRef(({selectedTidCuration, handleCurateButtonClick
       flex: 1,
     },
     majorityContainer: {
-      flex: [1, "1 1 33.333%"],
+      flex: [1, "1 1 calc(100% / 3)"],
     },
     majorityButton: {
       height: 35,
