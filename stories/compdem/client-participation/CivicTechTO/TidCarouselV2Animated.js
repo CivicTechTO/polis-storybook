@@ -12,13 +12,11 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
     button: {
       ...style,
       padding: 0,
-      border: 0,
-      cursor: "pointer",
       overflow: "hidden",
-      borderRadius: 4,
-      fontWeight: isSelected ? 700 : 300,
-      backgroundColor: isSelected ? "#03a9f4" : "rgb(235,235,235)",
-      color: isSelected ? "white" : "rgb(0,0,0)",
+      fontSize: 14,
+      letterSpacing: 0.75,
+      variant: isSelected ? "buttons.primary" : "buttons.secondary",
+      textShadow: isSelected ? "0 0 .65px white" : null,
     },
     span: {
       // 1s is rought estimate, but react-spring uses forces, not duration.
