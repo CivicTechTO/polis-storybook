@@ -3,12 +3,14 @@ import { action } from '@storybook/addon-actions'
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getComments, getMath } from '../../../../.storybook/utils'
 import TidCarouselV2Animated from './TidCarouselV2Animated'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResult = getMath()
 const commentsData = getComments()
 
 export default {
   component: TidCarouselV2Animated,
+  decorators: [withParticipationThemeUi],
   argTypes: {
     selectedTidCuration: {
       // TODO: Figure out why null does infinite renders.
