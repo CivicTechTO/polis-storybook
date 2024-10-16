@@ -21,7 +21,7 @@ const TidCarouselButton = React.forwardRef(({ isSelected, handleClick, style, ch
   )
 })
 
-const TidCarouselV2Static = ({
+const TidCarouselV2Static = React.forwardRef(({
   selectedTidCuration,
   // allComments,
   commentsToShow,
@@ -29,7 +29,7 @@ const TidCarouselV2Static = ({
   handleCommentClick,
   isAccessible = false,
   Strings,
-}) => {
+}, ref) => {
   const commentsToShowTids = commentsToShow.map(c => c.tid).sort((a, b) => a - b)
 
   const buttonHeight = 25
@@ -58,7 +58,7 @@ const TidCarouselV2Static = ({
   return (
     isAccessible
       ? (
-        <div>
+        <div ref={ref}>
           <Tabs.Root value={`statement-${selectedComment?.tid}`} activationMode="manual">
             <Tabs.List aria-label="Group X Statements" sx={styles.container}>
               {commentsToShowTids.map(tid => (
@@ -79,7 +79,7 @@ const TidCarouselV2Static = ({
         </div>
       )
       : (
-        <div sx={styles.container}>
+        <div ref={ref} sx={styles.container}>
           {commentsToShowTids.map(tid => (
             <TidCarouselButton
               key={tid}
@@ -92,6 +92,6 @@ const TidCarouselV2Static = ({
         </div>
       )
   )
-}
+})
 
 export default TidCarouselV2Static

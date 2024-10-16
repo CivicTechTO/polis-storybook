@@ -22,7 +22,7 @@ export const CurateV2Button = React.forwardRef(({isSelected, handleClick, style,
   )
 })
 
-const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math, isAccessible = false}) => {
+const CurateV2 = React.forwardRef(({selectedTidCuration, handleCurateButtonClick = () => {}, math, isAccessible = false}, ref) => {
   const GROUP_COUNT = math["group-clusters"].length
   const styles = {
     container: {
@@ -53,7 +53,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
   return(
     isAccessible 
       ? (
-        <Tabs.Root value={`group-${selectedTidCuration}`} activationMode="manual">
+        <Tabs.Root ref={ref} value={`group-${selectedTidCuration}`} activationMode="manual">
           <Tabs.List aria-label="Groups" sx={styles.container}>
             <div sx={styles.majorityContainer}>
               <Tabs.Trigger value="group-majority" asChild>
@@ -82,7 +82,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
         </Tabs.Root>
       )
       : (
-        <div sx={styles.container}>
+        <div ref={ref} sx={styles.container}>
           <div sx={styles.majorityContainer}>
             <CurateV2Button
               handleClick={() => handleCurateButtonClick(globals.tidCuration.majority)}
@@ -105,6 +105,6 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
         </div>
       )
   )
-}
+})
 
 export default CurateV2

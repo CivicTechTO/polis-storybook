@@ -11,7 +11,7 @@ import CurateV2 from './CurateV2'
 const mathResult = getMath()
 const commentsData = getComments()
 
-const SelectionWidgetV2 = ({isStatic, isAccessible, math}) => {
+const SelectionWidgetV2 = React.forwardRef(({isStatic, isAccessible, math}, ref) => {
   const [selectedTidCuration, setSelectedTidCuration] = useState(globals.tidCuration.majority)
   const [selectedComment, setSelectedComment] = useState(null)
 
@@ -54,7 +54,7 @@ const SelectionWidgetV2 = ({isStatic, isAccessible, math}) => {
   }
   const TidCarouselComponent = isStatic ? TidCarouselV2Static : TidCarouselV2
   return (
-    <div style={styles.container}>
+    <div ref={ref} style={styles.container}>
       <CurateV2
         {...{ selectedTidCuration, handleCurateButtonClick, math, isAccessible }}
       />
@@ -65,7 +65,7 @@ const SelectionWidgetV2 = ({isStatic, isAccessible, math}) => {
       />
     </div>
   )
-}
+})
 
 export default {
   component: SelectionWidgetV2,

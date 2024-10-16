@@ -54,24 +54,26 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
   )
 }
 
-const TidCarouselV2 = ({
+const TidCarouselV2 = React.forwardRef(({
   selectedTidCuration,
   allComments,
   commentsToShow,
   selectedComment,
   handleCommentClick,
   Strings,
-}) => {
+}, ref) => {
   // TODO: Why doesn't this line avoid infinite renders when null?
   if ( selectedTidCuration === null ) return null
-  const [ref, bounds] = useMeasure()
+  // TODO: If we ever need to use the forwardRef, we'll need another package.
+  // See: https://github.com/pmndrs/react-use-measure?tab=readme-ov-file#multiple-refs
+  const [localRef, bounds] = useMeasure()
 
   allComments = allComments.sort((a, b) => a.tid - b.tid)
   const commentsToShowTids = commentsToShow.map(c => c.tid)
 
   // ref not available on first render, so only render map after bounds exists.
   return (
-    <div ref={ref} style={{
+    <div ref={localRef} style={{
       display: "flex",
       flex: 1,
       width: "100%",
@@ -94,6 +96,6 @@ const TidCarouselV2 = ({
       ))}
     </div>
   )
-}
+})
 
 export default TidCarouselV2
