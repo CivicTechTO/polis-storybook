@@ -2,12 +2,13 @@
 import { jsx, Box } from 'theme-ui'
 
 import React from 'react'
+import * as Tabs from "@radix-ui/react-tabs"
 import { animated, useTransition } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
 const AnimatedBox = animated(Box)
 
-export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerWidth, style }) => {
+export const TidCarouselButton = React.forwardRef(({ label, isShown, isSelected, handleClick, containerWidth, style, ...rest }, ref) => {
   const styles = {
     button: {
       ...style,
@@ -33,7 +34,8 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
       opacity: 1,
     },
     enter: {
-      width: containerWidth/5-4,
+      // TODO: Why is this such a funny number? Would expect 4 to work.
+      width: containerWidth/5-4.8,
       marginRight: 0,
       opacity: 1,
     },
@@ -45,7 +47,7 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
   })
   return (
     transition((style, isShownTransition) => (
-      isShownTransition && <AnimatedBox as="button"
+      isShownTransition && <AnimatedBox as="button" ref={ref}
         onClick={handleClick}
         sx={{
           ...styles.button,
@@ -56,14 +58,16 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
           // fontSize changes seem slow. Scale span instead.
           // fontSize: style.fontSize,
           opacity: style.opacity,
-        }}>
+        }}
+        {...rest}
+      >
         <span sx={styles.span}>
           {label}
         </span>
       </AnimatedBox>
     ))
   )
-}
+})
 
 const TidCarouselV2Animated = React.forwardRef(({
   selectedTidCuration,
@@ -71,6 +75,7 @@ const TidCarouselV2Animated = React.forwardRef(({
   commentsToShow,
   selectedComment,
   handleCommentClick,
+  isAccessible = false,
   Strings,
 }, ref) => {
   // TODO: Why doesn't this line avoid infinite renders when null?
@@ -107,22 +112,48 @@ const TidCarouselV2Animated = React.forwardRef(({
     },
   }
 
-  // ref not available on first render, so only render map after bounds exists.
   return (
-    <div ref={localRef} style={{overflow: "hidden"}}>
-    <div style={styles.container}>
-      {!bounds.width || allComments.map((c, i) => (
-        <TidCarouselButton
-          style={styles.button}
-          containerWidth={bounds.width}
-          key={c.tid}
-          label={c.tid}
-          handleClick={handleCommentClick(c)}
-          isSelected={selectedComment?.tid === c.tid}
-          isShown={commentsToShow.some(cts => cts.tid == c.tid)}
-        />
-      ))}
-    </div>
+    // padding and margins here are to ensure focus glow is visible with overflow: hidden.
+    <div ref={localRef} style={{overflow: "hidden", padding: "2px", margin: "-2px"}}>
+    {isAccessible
+      ? (
+          <Tabs.Root value={`statement-${selectedComment?.tid}`} activationMode="manual">
+            <Tabs.List aria-label="Group X Statements" sx={styles.container}>
+              {!bounds.width || allComments.map(c => (
+                <Tabs.Trigger key={c.tid} value={`statement-${c.tid}`} asChild>
+                  <TidCarouselButton
+                    containerWidth={bounds.width}
+                    style={styles.button}
+                    label={c.tid}
+                    handleClick={handleCommentClick(c)}
+                    isSelected={selectedComment?.tid === c.tid}
+                    isShown={commentsToShow.some(cts => cts.tid == c.tid)}
+                  />
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+            {/* {commentsToShowTids.map(tid => (
+              <Tabs.Content key={tid} value={`statement-${tid}`}>Statement {tid}...</Tabs.Content>
+            ))} */}
+          </Tabs.Root>
+      )
+      : (
+        <div style={styles.container}>
+          {/* ref not available on first render, so only render map after bounds exists. */}
+          {!bounds.width || allComments.map(c => (
+            <TidCarouselButton
+              key={c.tid}
+              containerWidth={bounds.width}
+              style={styles.button}
+              label={c.tid}
+              handleClick={handleCommentClick(c)}
+              isSelected={selectedComment?.tid === c.tid}
+              isShown={commentsToShow.some(cts => cts.tid == c.tid)}
+            />
+          ))}
+        </div>
+      )
+    }
     </div>
   )
 })

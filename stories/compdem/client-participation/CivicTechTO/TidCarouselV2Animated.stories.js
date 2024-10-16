@@ -53,6 +53,7 @@ const Template = (args) => {
 
 export const Interactive = Template.bind({})
 Interactive.args = {
+  isAccessible: true,
   selectedTidCuration: 1,
   allComments: commentsData,
   Strings,
