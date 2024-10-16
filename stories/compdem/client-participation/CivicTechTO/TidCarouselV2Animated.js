@@ -8,7 +8,18 @@ import useMeasure from 'react-use-measure'
 
 const AnimatedBox = animated(Box)
 
+function usePrevious(value) {
+  const ref = React.useRef();
+  React.useEffect(() => {
+    ref.current = value; //assign the value of ref to the argument
+  },[value]); //this code will run when the value of 'value' changes
+  return ref.current; //in the end, return the current ref value.
+}
+
 export const TidCarouselButton = React.forwardRef(({ label, isShown, isSelected, handleClick, containerWidth, style, ...rest }, ref) => {
+  // Allows selected style to persist during transition out.
+  let wasSelected = usePrevious(isSelected)
+
   const styles = {
     button: {
       ...style,
@@ -16,8 +27,10 @@ export const TidCarouselButton = React.forwardRef(({ label, isShown, isSelected,
       overflow: "hidden",
       fontSize: 14,
       letterSpacing: 0.75,
-      variant: isSelected ? "buttons.primary" : "buttons.secondary",
-      textShadow: isSelected ? "0 0 .65px white" : null,
+      // Only want to style based on previous select state when
+      // a button is no longer shown (aka on its was out)
+      variant: (isSelected || (wasSelected && !isShown)) ? "buttons.primary" : "buttons.secondary",
+      textShadow: (isSelected || (wasSelected && !isShown)) ? "0 0 .65px white" : null,
     },
     span: {
       // 1s is rought estimate, but react-spring uses forces, not duration.
