@@ -51,6 +51,7 @@ const SelectionWidgetV2 = ({math}) => {
       rowGap: 5,
     }
   }
+
   return (
     <div style={styles.container}>
       <CurateV2
@@ -75,12 +76,27 @@ export default {
   component: SelectionWidgetV2,
 }
 
+const StickToBottom = ({ children }) => (
+  <div style={{
+    position: "fixed",
+    width: "100%",
+    bottom: 0,
+    left: 0,
+  }}>
+    <div style={{
+      // Match storybook viewport margin.
+      margin: 16,
+    }}>
+      {children}
+    </div>
+  </div>
+)
+
 const Template = (args) => {
   // TODO: Figure out how to make this sticky at the bottom
-  return <div style={{
-  }}>
+  return <StickToBottom>
     <SelectionWidgetV2 {...args} />
-  </div>
+  </StickToBottom>
 }
 
 export const Interactive = Template.bind({})
