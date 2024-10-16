@@ -54,7 +54,7 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
   )
 }
 
-const TidCarouselV2 = React.forwardRef(({
+const TidCarouselV2Animated = React.forwardRef(({
   selectedTidCuration,
   allComments,
   commentsToShow,
@@ -98,4 +98,4 @@ const TidCarouselV2 = React.forwardRef(({
   )
 })
 
-export default TidCarouselV2
+export default TidCarouselV2Animated

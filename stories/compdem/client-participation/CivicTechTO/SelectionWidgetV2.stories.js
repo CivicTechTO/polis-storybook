@@ -4,7 +4,7 @@ import * as globals from '../../../../codebases/compdem/client-participation/vis
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getMath, getComments } from '../../../../.storybook/utils'
 import { withParticipationThemeUi } from '../../../../.storybook/decorators'
-import TidCarouselV2 from './TidCarouselV2'
+import TidCarouselV2Animated from './TidCarouselV2Animated'
 import TidCarouselV2Static from './TidCarouselV2Static'
 import CurateV2 from './CurateV2'
 
@@ -52,7 +52,7 @@ const SelectionWidgetV2 = React.forwardRef(({isStatic, isAccessible, math}, ref)
       rowGap: 5,
     }
   }
-  const TidCarouselComponent = isStatic ? TidCarouselV2Static : TidCarouselV2
+  const TidCarouselComponent = isStatic ? TidCarouselV2Static : TidCarouselV2Animated
   return (
     <div ref={ref} style={styles.container}>
       <CurateV2
