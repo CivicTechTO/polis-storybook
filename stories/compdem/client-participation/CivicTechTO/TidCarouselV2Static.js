@@ -59,7 +59,7 @@ const TidCarouselV2Static = ({
     isAccessible
       ? (
         <div>
-          <Tabs.Root defaultValue={`statement-${commentsToShowTids[0]}`} activationMode="manual">
+          <Tabs.Root value={`statement-${selectedComment?.tid}`} activationMode="manual">
             <Tabs.List aria-label="Group X Statements" sx={styles.container}>
               {commentsToShowTids.map(tid => (
                 <Tabs.Trigger key={tid} value={`statement-${tid}`} asChild>

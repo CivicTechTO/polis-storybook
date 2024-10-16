@@ -53,7 +53,7 @@ const CurateV2 = ({selectedTidCuration, handleCurateButtonClick = () => {}, math
   return(
     isAccessible 
       ? (
-        <Tabs.Root defaultValue="group-majority" activationMode="manual">
+        <Tabs.Root value={`group-${selectedTidCuration}`} activationMode="manual">
           <Tabs.List aria-label="Groups" sx={styles.container}>
             <div sx={styles.majorityContainer}>
               <Tabs.Trigger value="group-majority" asChild>
