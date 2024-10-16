@@ -7,6 +7,7 @@ import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 import TidCarouselV2 from './TidCarouselV2'
 import TidCarouselV2Static from './TidCarouselV2Static'
 import CurateV2 from './CurateV2'
+import ExploreTid from '../../../../codebases/compdem/client-participation/vis2/components/exploreTid'
 
 const mathResult = getMath()
 const commentsData = getComments()
@@ -62,6 +63,12 @@ const SelectionWidgetV2 = ({isStatic, math}) => {
         {...{ selectedTidCuration, selectedComment, handleCommentClick }}
         allComments={commentsData}
         commentsToShow={commentsToShow}
+      />
+      <ExploreTid
+        math={mathResult}
+        selectedComment={selectedComment}
+        selectedTidCuration={selectedTidCuration}
+        Strings={Strings}
       />
     </div>
   )
