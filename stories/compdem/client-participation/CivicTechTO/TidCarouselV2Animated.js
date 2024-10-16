@@ -1,6 +1,11 @@
+/** @jsx jsx */
+import { jsx, Box } from 'theme-ui'
+
 import React from 'react'
 import { animated, useTransition } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
+
+const AnimatedBox = animated(Box)
 
 export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerWidth, style }) => {
   const styles = {
@@ -30,7 +35,7 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
       opacity: 1,
     },
     enter: {
-      width: containerWidth/5-5,
+      width: containerWidth/5-4,
       marginRight: 0,
       opacity: 1,
     },
@@ -42,20 +47,22 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
   })
   return (
     transition((style, isShownTransition) => (
-      isShownTransition && <animated.button
+      isShownTransition && <AnimatedBox as="button"
         onClick={handleClick}
-        style={{
+        sx={{
           ...styles.button,
+        }}
+        style={{
           width: style.width,
           marginRight: style.marginRight,
           // fontSize changes seem slow. Scale span instead.
           // fontSize: style.fontSize,
           opacity: style.opacity,
         }}>
-        <span style={styles.span}>
+        <span sx={styles.span}>
           {label}
         </span>
-      </animated.button>
+      </AnimatedBox>
     ))
   )
 }
@@ -91,17 +98,19 @@ const TidCarouselV2Animated = ({
       flexWrap: "wrap",
       gap: `${gap}px`,
       justifyContent: "flex-start",
+      marginRight: -30,
     },
     button: {
       height: buttonHeight,
       // flex: `1 0 ${getButtonWidthCalc(5)}`,
-      maxWidth: getButtonWidthCalc(5),
+      // maxWidth: getButtonWidthCalc(5),
     },
   }
 
   // ref not available on first render, so only render map after bounds exists.
   return (
-    <div ref={ref} style={styles.container}>
+    <div ref={ref} style={{overflow: "hidden"}}>
+    <div style={styles.container}>
       {!bounds.width || allComments.map((c, i) => (
         <TidCarouselButton
           style={styles.button}
@@ -113,6 +122,7 @@ const TidCarouselV2Animated = ({
           isShown={commentsToShow.some(cts => cts.tid == c.tid)}
         />
       ))}
+    </div>
     </div>
   )
 }
