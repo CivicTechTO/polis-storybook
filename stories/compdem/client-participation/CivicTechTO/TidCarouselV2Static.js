@@ -66,8 +66,8 @@ const TidCarouselV2Static = React.forwardRef(({
                   <TidCarouselButton
                     style={styles.button}
                     children={c.tid}
-                    isSelected={selectedComment?.tid === c.tid}
                     handleClick={handleCommentClick(c)}
+                    isSelected={selectedComment?.tid === c.tid}
                   />
                 </Tabs.Trigger>
               ))}
@@ -82,8 +82,8 @@ const TidCarouselV2Static = React.forwardRef(({
         <div ref={ref} sx={styles.container}>
           {commentsToShow.map(c => (
             <TidCarouselButton
-              style={styles.button}
               key={c.tid}
+              style={styles.button}
               children={c.tid}
               handleClick={handleCommentClick(c)}
               isSelected={selectedComment?.tid === c.tid}
