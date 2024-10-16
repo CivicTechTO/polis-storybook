@@ -2,13 +2,13 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import { getComments, getMath } from '../../../../.storybook/utils'
-import TidCarouselV2 from './TidCarouselV2'
+import TidCarouselV2Animated from './TidCarouselV2Animated'
 
 const mathResult = getMath()
 const commentsData = getComments()
 
 export default {
-  component: TidCarouselV2,
+  component: TidCarouselV2Animated,
   argTypes: {
     selectedTidCuration: {
       // TODO: Figure out why null does infinite renders.
@@ -42,7 +42,7 @@ const Template = (args) => {
   if (!commentsToShow.map(c => c.tid).includes(selectedComment?.tid)) {
     handleCommentClick(commentsToShow[0])
   }
-  return <TidCarouselV2 {...args} {...{
+  return <TidCarouselV2Animated {...args} {...{
     handleCommentClick,
     selectedComment,
     commentsToShow,

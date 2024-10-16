@@ -54,7 +54,7 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
   )
 }
 
-const TidCarouselV2 = ({
+const TidCarouselV2Animated = ({
   selectedTidCuration,
   allComments,
   commentsToShow,
@@ -96,4 +96,4 @@ const TidCarouselV2 = ({
   )
 }
 
-export default TidCarouselV2
+export default TidCarouselV2Animated
