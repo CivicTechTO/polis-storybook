@@ -3,6 +3,26 @@ import { animated, useTransition } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
 export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, containerWidth }) => {
+  const styles = {
+    button: {
+      height: 25,
+      padding: 0,
+      border: 0,
+      cursor: "pointer",
+      overflow: "hidden",
+      borderRadius: 4,
+      fontWeight: isSelected ? 700 : 300,
+      backgroundColor: isSelected ? "#03a9f4" : "rgb(235,235,235)",
+      color: isSelected ? "white" : "rgb(0,0,0)",
+    },
+    span: {
+      // 1s is rought estimate, but react-spring uses forces, not duration.
+      transition: "transform 1s ease-in-out",
+      transform: isShown ? "scaleX(1)" : "scaleX(0.5)",
+      // Needed in order to transform.
+      display: "inline-block",
+    },
+  }
   const transition = useTransition(isShown, {
     from: {
       width: 0,
@@ -25,28 +45,14 @@ export const TidCarouselButton = ({ label, isShown, isSelected, handleClick, con
       isShownTransition && <animated.button
         onClick={handleClick}
         style={{
+          ...styles.button,
           width: style.width,
-          height: 25,
           marginRight: style.marginRight,
           // fontSize changes seem slow. Scale span instead.
           // fontSize: style.fontSize,
           opacity: style.opacity,
-          padding: 0,
-          border: 0,
-          cursor: "pointer",
-          overflow: "hidden",
-          borderRadius: 4,
-          fontWeight: isSelected ? 700 : 300,
-          backgroundColor: isSelected ? "#03a9f4" : "rgb(235,235,235)",
-          color: isSelected ? "white" : "rgb(0,0,0)",
         }}>
-        <span style={{
-          // 1s is rought estimate, but react-spring uses forces, not duration.
-          transition: "transform 1s ease-in-out",
-          transform: isShown ? "scaleX(1)" : "scaleX(0.5)",
-          // Needed in order to transform.
-          display: "inline-block",
-        }}>
+        <span style={styles.span}>
           {label}
         </span>
       </animated.button>
@@ -68,9 +74,18 @@ const TidCarouselV2Animated = ({
 
   allComments = allComments.sort((a, b) => a.tid - b.tid)
 
-  // ref not available on first render, so only render map after bounds exists.
-  return (
-    <div ref={ref} style={{
+  const buttonHeight = 25
+  const gap = 5
+  const getRows = cols => {
+    const maxStatements = 10
+    return Math.ceil(maxStatements/cols)
+  }
+  // Example: calc(20%-4px)
+  const getButtonWidthCalc = cols => `calc(${100/cols}% - ${gap*((cols-1)/cols)}px)`
+  const getContainerHeight = cols => buttonHeight*getRows(cols) + gap*(getRows(cols)-1)
+
+  const stylesPrev = {
+    container: {
       display: "flex",
       flex: 1,
       width: "100%",
@@ -80,7 +95,27 @@ const TidCarouselV2Animated = ({
       rowGap: 5,
       flexWrap: "wrap",
       justifyContent: "flex-start",
-    }}>
+    }
+  }
+
+  const styles = {
+    container: {
+      height: getContainerHeight(5),
+      display: "flex",
+      flexWrap: "wrap",
+      gap: `${gap}px`,
+      justifyContent: "flex-start",
+    },
+    button: {
+      // height: buttonHeight,
+      // flex: `1 0 ${getButtonWidthCalc(5)}`,
+      // maxWidth: getButtonWidthCalc(5),
+    },
+  }
+
+  // ref not available on first render, so only render map after bounds exists.
+  return (
+    <div ref={ref} style={stylesPrev.container}>
       {!bounds.width || allComments.map((c, i) => (
         <TidCarouselButton
           containerWidth={bounds.width}
