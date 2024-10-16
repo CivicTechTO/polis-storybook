@@ -14,6 +14,30 @@ export const withThemeUi = (Story) => (
   </ThemeProvider>
 )
 
+const customParticipationTheme = Object.assign({}, compdemAdminTheme)
+customParticipationTheme.fonts.body = "Arial"
+customParticipationTheme.buttons.primary.border = 0
+customParticipationTheme.buttons.primary.borderRadius = 4
+customParticipationTheme.buttons.secondary = {
+  ...customParticipationTheme.buttons.primary,
+  color: 'darkGray',
+  bg: 'lightGray',
+  fontFamily: 'body',
+  cursor: 'pointer'
+}
+customParticipationTheme["letterSpacings"] = {
+  button: 0.75,
+}
+customParticipationTheme.colors["polisBlue"] = "#03a9f4"
+customParticipationTheme.colors["darkGray"] = "rgb(100,100,100)"
+customParticipationTheme.colors["lightGray"] = "rgb(235,235,235)"
+
+export const withParticipationThemeUi = (Story) => (
+  <ThemeProvider theme={customParticipationTheme}>
+    <Story />
+  </ThemeProvider>
+)
+
 export const withDelibThemeUi = (Story) => (
   <ThemeProvider theme={haiDelibTheme}>
     <Story />

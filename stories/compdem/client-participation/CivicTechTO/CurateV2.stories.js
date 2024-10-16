@@ -4,11 +4,13 @@ import * as globals from '../../../../codebases/compdem/client-participation/vis
 import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
 import CurateV2 from './CurateV2'
 import { getMath } from '../../../../.storybook/utils'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResults = getMath()
 
 export default {
   component: CurateV2,
+  decorators: [withParticipationThemeUi],
   argTypes: {
     groupCount: {
       options: [2, 3, 4],
@@ -30,6 +32,7 @@ const Template = ({ groupCount, ...args }) => {
 export const Interactive = Template.bind({})
 Interactive.args = {
   groupCount: 4,
+  isAccessible: true,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,
     group_123: Strings.group_123
@@ -39,6 +42,7 @@ Interactive.args = {
 
 export const Unselected = Template.bind({})
 Unselected.args = {
+  isAccessible: true,
   selectedTidCuration: null,
   Strings: {
     majorityOpinion: Strings.majorityOpinion,

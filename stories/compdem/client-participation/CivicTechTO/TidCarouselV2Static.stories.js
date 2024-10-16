@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
-import TidCarousel from '../../../codebases/compdem/client-participation/vis2/components/tidCarousel'
-import * as globals from '../../../codebases/compdem/client-participation/vis2/components/globals'
-import Strings from '../../../codebases/compdem/client-participation/js/strings/en_us'
-import { getMath, getComments } from '../../../.storybook/utils'
+import TidCarouselV2Static from './TidCarouselV2Static'
+import * as globals from '../../../../codebases/compdem/client-participation/vis2/components/globals'
+import Strings from '../../../../codebases/compdem/client-participation/js/strings/en_us'
+import { getMath, getComments } from '../../../../.storybook/utils'
+import { withParticipationThemeUi } from '../../../../.storybook/decorators'
 
 const mathResults = getMath()
-const commentsData = getComments().sort((a, b) => a.tid - b.tid)
+const commentsData = getComments()
 
 const pluckNBetweenLowerUpper = (n, lower, upper) => {
   let numbers = []
@@ -23,11 +24,13 @@ const pluckNBetweenLowerUpper = (n, lower, upper) => {
 }
 
 export default {
-  component: TidCarousel,
+  component: TidCarouselV2Static,
+  decorators: [withParticipationThemeUi],
 }
 
 const Template = (args) => {
   const [selectedComment, setSelectedComment] = useState(null)
+
   const handleCommentClick = (comment) => () => {
     action("Clicked")(comment)
     setSelectedComment(comment)
@@ -47,7 +50,7 @@ const Template = (args) => {
       ?.map(i => i.tid).includes(c.tid)
     )
 
-  return <TidCarousel {...{
+  return <TidCarouselV2Static {...{
     handleCommentClick,
     selectedComment,
     commentsToShow
@@ -56,34 +59,22 @@ const Template = (args) => {
 
 export const Interactive = Template.bind({})
 Interactive.args = {
+  isAccessible: true,
   selectedTidCuration: 0,
   Strings,
 }
 Interactive.argTypes = {
   selectedTidCuration: {
-    options: [null, "majority", 0, 1, 2, 3],
+    options: [null, 'majority', 0, 1, 2, 3],
     control: { type: 'inline-radio' },
   },
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  selectedTidCuration: undefined,
-  commentsToShow: commentsData.slice(10,20),
-  selectedComment: null,
-  // TODO: Pretty sure this is janky. It should be simply action("Clicked")
-  // and the prop in tidCarousel should be:
-  // onClick={() => this.props.handleCommentClick(c)}
-  // not just
-  // onClick={this.props.handleCommentClick(c)}
-  handleCommentClick: (c) => () => action("Clicked")(c),
-  Strings,
-}
-
 export const Empty = Template.bind({})
 Empty.args = {
+  isAccessible: true,
   commentsToShow: [],
-  selectedTidCuration: globals.tidCuration.majority,
+  selectedTidCuration: null,
   selectedComment: null,
   // TODO: Pretty sure this is janky. It should be simply action("Clicked")
   // and the prop in tidCarousel should be:
@@ -97,25 +88,25 @@ Empty.args = {
 export const OneStatement = Template.bind({})
 OneStatement.args = {
   ...Empty.args,
-  commentsToShow: pluckNBetweenLowerUpper(1, 0, 25).map(i => ({ tid: i })),
+  commentsToShow: commentsData.slice(10,11),
 }
 
 export const FiveStatements = Template.bind({})
 FiveStatements.args = {
   ...Empty.args,
-  commentsToShow: pluckNBetweenLowerUpper(5, 0, 25).map(i => ({ tid: i })),
+  commentsToShow: commentsData.slice(10,15),
 }
 
 export const SixStatements = Template.bind({})
 SixStatements.args = {
   ...Empty.args,
-  commentsToShow: pluckNBetweenLowerUpper(6, 0, 25).map(i => ({ tid: i })),
+  commentsToShow: commentsData.slice(10,16),
 }
 
 export const TenStatements = Template.bind({})
 TenStatements.args = {
   ...Empty.args,
-  commentsToShow: pluckNBetweenLowerUpper(10, 0, 25).map(i => ({ tid: i })),
+  commentsToShow: commentsData.slice(10,20),
 }
 
 export const Selected = Template.bind({})
@@ -125,33 +116,14 @@ Selected.args = {
   selectedComment: commentsData[11],
 }
 
-// TODO: Load dataset with hundreds/thousands of comments.
-//export const DoubleToTripleDigits = Template.bind({})
-//DoubleToTripleDigits.args = {
-//  ...Default.args,
-//  commentsToShow: commentsData.slice(95,105),
-//}
-
-// export const Pagination = Template.bind({})
-// Pagination.args = {
-//   ...Default.args,
-//   commentsToShow: commentsData.slice(10,40),
-// }
-
 export const UpToDoubleDigits = Template.bind({})
 UpToDoubleDigits.args = {
-  ...Default.args,
+  ...Empty.args,
   commentsToShow: pluckNBetweenLowerUpper(10, 0, 100).map(i => ({ tid: i })),
 }
 
 export const UpToTripleDigits = Template.bind({})
 UpToTripleDigits.args = {
-  ...Default.args,
+  ...Empty.args,
   commentsToShow: pluckNBetweenLowerUpper(10, 0, 400).map(i => ({ tid: i })),
-}
-
-export const NoGroupSelectedSoHidden = Template.bind({})
-NoGroupSelectedSoHidden.args = {
-  ...Default.args,
-  selectedTidCuration: null
 }
