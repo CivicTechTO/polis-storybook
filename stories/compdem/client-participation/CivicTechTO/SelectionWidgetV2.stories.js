@@ -5,7 +5,7 @@ import Strings from '../../../../codebases/compdem/client-participation/js/strin
 import { getMath, getComments } from '../../../../.storybook/utils'
 import TidCarouselV2 from './TidCarouselV2'
 import CurateV2 from './CurateV2'
-import ExploreTid from '../../../../codebases/compdem/client-participation/vis2/components/exploreTid'
+import ExploreTidV2 from './ExploreTidV2'
 
 const mathResult = getMath()
 const commentsData = getComments()
@@ -62,7 +62,7 @@ const SelectionWidgetV2 = ({math}) => {
         allComments={commentsData}
         commentsToShow={commentsToShow}
       />
-      <ExploreTid
+      <ExploreTidV2
         math={mathResult}
         selectedComment={selectedComment}
         selectedTidCuration={selectedTidCuration}
