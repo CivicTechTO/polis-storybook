@@ -3,11 +3,12 @@ import Beeswarm from '../../../codebases/compdem/client-report/src/components/be
 import { getMath, getConversation, getExtremity } from '../../../.storybook/utils'
 
 import '../../../codebases/compdem/client-report/src/index.css';
+import { comments, conversation, extremity, math } from './testData';
 
 const mathResult = getMath()
 
 export default {
-  title: 'compdem/client-report/Beeswarm (not working)',
+  title: 'compdem/client-report/Beeswarm',
   component: Beeswarm,
 }
 
@@ -27,12 +28,16 @@ AllNull.args = {
 export const Default = Template.bind({})
 Default.args = {
   ...AllNull.args,
-  conversation: getConversation(),
-  extremity: getExtremity(),
-  math: mathResult,
-  comments: null, //{this.state.comments}
-  probabilities: null, //{this.state.filteredCorrelationMatrix}
-  probabilitiesTids: null, //{this.state.filteredCorrelationTids}
-  voteColors: null, //{this.state.voteColors}
-}
+  conversation: conversation,
+  extremity: extremity,
+  math: math,
+  comments: comments,
+  probabilities: {}, //{this.state.filteredCorrelationMatrix}
+  probabilitiesTids: {}, //{this.state.filteredCorrelationTids}
+  voteColors: {
+    "agree": "rgb(46, 204, 113)",
+    "disagree": "rgb(231, 76, 60)",
+    "pass": "rgb(230,230,230)"
+  }, //{this.state.voteColors},
 
+}
