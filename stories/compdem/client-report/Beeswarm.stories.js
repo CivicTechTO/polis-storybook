@@ -13,20 +13,8 @@ export default {
 
 const Template = (args) => <Beeswarm {...args} />
 
-export const AllNull = Template.bind({})
-AllNull.args = {
-  conversation: null,
-  extremity: null, //{this.state.extremity}
-  math: null, //{this.state.math}
-  comments: null, //{this.state.comments}
-  probabilities: null, //{this.state.filteredCorrelationMatrix}
-  probabilitiesTids: null, //{this.state.filteredCorrelationTids}
-  voteColors: null, //{this.state.voteColors}
-}
-
 export const Default = Template.bind({})
 Default.args = {
-  ...AllNull.args,
   conversation: getConversation(),
   extremity: getExtremity(),
   math: mathResult,

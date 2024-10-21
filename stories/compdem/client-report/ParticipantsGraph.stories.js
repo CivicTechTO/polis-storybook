@@ -11,20 +11,6 @@ export default {
 
 const Template = (args) => <ParticipantsGraph {...args} />
 
-export const AllNull = Template.bind({})
-AllNull.args = {
-  comments: null,
-  groupNames: null,
-  badTids: null,
-  colorBlindMode: null,
-  formatTid: null,
-  repfulAgreeTidsByGroup: null,
-  math: null,
-  renderHeading: null,
-  report: null,
-  voteColors: null,
-}
-
 const comments = getComments();
 
 // Logic from client-report/src/components/app.js#L274-291
