@@ -9,7 +9,7 @@ on:
   # - force changes to our GitHub Pages website,
   # - force commit status updates,
   # unless the permissions key below is changed.
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
 
 # Be careful about changing these, due to pull_request_target trigger.
@@ -38,11 +38,10 @@ jobs:
           checkout: false
 
       - name: Fail if PR portion of build failed
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request_target' }}
         shell: bash
         env:
-          #DIRECTORY: dist/storybook-bundle/PR-${{ github.event.number }}
-          DIRECTORY: dist/storybook-bundle/PR-19
+          DIRECTORY: dist/storybook-bundle/PR-${{ github.event.number }}
         run: |
           if [ ! -d "$DIRECTORY" ]; then
             echo Pull Request build directory "$DIRECTORY does not exist."
