@@ -37,6 +37,17 @@ jobs:
           # Done manually so we can checkout submodule
           checkout: false
 
+      - name: Fail if PR portion of build failed
+        if: ${{ github.event_name == 'pull_request_target' }}
+        shell: bash
+        env:
+          DIRECTORY: dist/storybook-bundle/PR-${{ github.event.number }}
+        run: |
+          if [ ! -d "$DIRECTORY" ]; then
+            echo Pull Request build directory "$DIRECTORY does not exist."
+            exit 1
+          fi
+
       # See: https://github.com/ouzi-dev/commit-status-updater/pull/533
       - uses: patcon/commit-status-updater@patch-1
         if: ${{ github.event_name == 'pull_request_target' }}

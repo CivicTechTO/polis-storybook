@@ -8,7 +8,10 @@ export default {
 }
 
 // TODO: Need to mock PolisNet API calls.
-const Template = (args) => <div>Not Yet Implemented</div>
+const Template = (args) => <VisualisationTutorial {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  // In theory, something happens at 15, but doesn't seem to work.
+  currentIndex: 14,
+}
