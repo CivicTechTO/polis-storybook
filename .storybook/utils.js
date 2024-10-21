@@ -1,11 +1,14 @@
 import * as globals from "../codebases/compdem/client-report/src/components/globals";
 import participationData from './data/3ntrtcehas-participation-init.json'
 import commentsData from './data/3ntrtcehas-comments.json'
+import reportsData from './data/3ntrtcehas-reports.json'
 
+// Simulates response data from /api/v3/math/pca2?conversation_id=3ntrtcehas
 export const getMath = () => {
   return JSON.parse(participationData.pca)
 }
 
+// Simulates manipulation of response data done in application code.
 export const getExtremity = () => {
   const mathResult = getMath()
   return mathResult.pca["comment-extremity"].reduce(
@@ -17,36 +20,19 @@ export const getExtremity = () => {
   )
 }
 
+// Simulates response data from /api/v3/conversations?conversation_id=3ntrtcehas
 export const getConversation = () => {
   return participationData.conversation
 }
 
+// Simulates response data from /api/v3/comments?conversation_id=3ntrtcehas&moderation=true&include_voting_patterns=true
 export const getComments = () => {
   return commentsData
 }
 
-export const getReport = () => {
-  return {
-    "report_id": "r3bpnywujybyru4rkx92i", // example; might not match
-    "created": participationData.conversation.created,
-    "modified": participationData.conversation.modified,
-    "label_x_neg": null,
-    "label_y_neg": null,
-    "label_y_pos": null,
-    "label_x_pos": null,
-    "label_group_0": null,
-    "label_group_1": null,
-    "label_group_2": null,
-    "label_group_3": null,
-    "label_group_4": null,
-    "label_group_5": null,
-    "label_group_6": null,
-    "label_group_7": null,
-    "label_group_8": null,
-    "label_group_9": null,
-    "report_name": null,
-    "conversation_id": participationData.conversation.conversation_id
-  }
+// Simulates response data from /api/v3/reports?report_id=r3bpnywujybyru4rkx92i
+export const getReports = () => {
+  return reportsData
 }
 
 export const getVoteColors = () => ({

@@ -2,7 +2,7 @@ import React from 'react'
 import ParticipantsGraph from '../../../codebases/compdem/client-report/src/components/participantsGraph/participantsGraph';
 
 import '../../../codebases/compdem/client-report/src/index.css';
-import { getComments, getMath, getReport, getVoteColors } from '../../../.storybook/utils';
+import { getComments, getMath, getReports, getVoteColors } from '../../../.storybook/utils';
 
 export default {
   title: 'compdem/client-report/ParticipantsGraph',
@@ -58,6 +58,6 @@ Default.args = {
   repfulAgreeTidsByGroup: null,
   math: getMath(),
   renderHeading: true,
-  report: getReport(),
+  report: getReports()[0],
   voteColors: getVoteColors(),
 }
