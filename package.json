@@ -36,7 +36,11 @@
   "dependencies": {
     "@react-spring/web": "^9.7.4",
     "color": "~4.2.3",
+    "d3-contour": "~1.1.2",
     "d3-force": "~1.2.1",
+    "d3-geo": "1.5.0",
+    "d3-scale": "1.0.4",
+    "d3-scale-chromatic": "~1.1.1",
     "hull.js": "^0.2.11",
     "radium": "^0.26.2",
     "react-chat-widget": "^3.0.5",

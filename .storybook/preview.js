@@ -7,6 +7,13 @@ import jquery from 'jquery';
 global.$ = jquery;
 global.jQuery =  jquery;
 
+import * as d3scale from 'd3-scale';
+import * as d3geo from 'd3-geo';
+global.d3 = {
+  ...d3scale,
+  ...d3geo,
+};
+
 // This is where we mock responses for PolisNet endpoints.
 // TODO: Create a storybook plugin to do this dynamically.
 function ajax_responses(responses) {
