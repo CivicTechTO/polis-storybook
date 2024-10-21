@@ -25,6 +25,30 @@ export const getComments = () => {
   return commentsData
 }
 
+export const getReport = () => {
+  return {
+    "report_id": "r3bpnywujybyru4rkx92i", // example; might not match
+    "created": participationData.conversation.created,
+    "modified": participationData.conversation.modified,
+    "label_x_neg": null,
+    "label_y_neg": null,
+    "label_y_pos": null,
+    "label_x_pos": null,
+    "label_group_0": null,
+    "label_group_1": null,
+    "label_group_2": null,
+    "label_group_3": null,
+    "label_group_4": null,
+    "label_group_5": null,
+    "label_group_6": null,
+    "label_group_7": null,
+    "label_group_8": null,
+    "label_group_9": null,
+    "report_name": null,
+    "conversation_id": participationData.conversation.conversation_id
+  }
+}
+
 export const getVoteColors = () => ({
   agree: globals.brandColors.agree,
   disagree: globals.brandColors.disagree,

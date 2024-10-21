@@ -2,7 +2,7 @@ import React from 'react'
 import ParticipantsGraph from '../../../codebases/compdem/client-report/src/components/participantsGraph/participantsGraph';
 
 import '../../../codebases/compdem/client-report/src/index.css';
-import { comments, math } from './testData';
+import { getComments, getMath, getReport, getVoteColors } from '../../../.storybook/utils';
 
 export default {
   title: 'compdem/client-report/ParticipantsGraph',
@@ -25,13 +25,17 @@ AllNull.args = {
   voteColors: null,
 }
 
-var maxTid = -1;
+const comments = getComments();
+
+// Logic from client-report/src/components/app.js#L274-291
+let maxTid = -1;
 for (let i = 0; i < comments.length; i++) {
   if (comments[i].tid > maxTid) {
     maxTid = comments[i].tid;
   }
 }
-var tidWidth = ("" + maxTid).length;
+const tidWidth = ("" + maxTid).length;
+
 function pad(n, width, z) {
   z = z || "0";
   n = n + "";
@@ -42,6 +46,7 @@ function formatTid(tid) {
   // return '#' + pad(""+tid, tidWidth);
   return pad("" + tid, tidWidth);
 }
+// end copied logic
 
 export const Default = Template.bind({})
 Default.args = {
@@ -51,32 +56,8 @@ Default.args = {
   colorBlindMode: false,
   formatTid: formatTid,
   repfulAgreeTidsByGroup: null,
-  math: math,
+  math: getMath(),
   renderHeading: true,
-  report: {
-    "report_id": "r3bpnywujybyru4rkx92i",
-    "created": "1718153339926",
-    "modified": "1718153339926",
-    "label_x_neg": null,
-    "label_y_neg": null,
-    "label_y_pos": null,
-    "label_x_pos": null,
-    "label_group_0": null,
-    "label_group_1": null,
-    "label_group_2": null,
-    "label_group_3": null,
-    "label_group_4": null,
-    "label_group_5": null,
-    "label_group_6": null,
-    "label_group_7": null,
-    "label_group_8": null,
-    "label_group_9": null,
-    "report_name": null,
-    "conversation_id": "5esrbenwxs"
-  },
-  voteColors: {
-    "agree": "rgb(46, 204, 113)",
-    "disagree": "rgb(231, 76, 60)",
-    "pass": "rgb(230,230,230)"
-  },
+  report: getReport(),
+  voteColors: getVoteColors(),
 }

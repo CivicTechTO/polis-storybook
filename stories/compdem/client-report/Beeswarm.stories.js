@@ -1,9 +1,8 @@
 import React from 'react'
 import Beeswarm from '../../../codebases/compdem/client-report/src/components/beeswarm/beeswarm'
-import { getMath, getConversation, getExtremity } from '../../../.storybook/utils'
+import { getMath, getConversation, getExtremity, getComments, getVoteColors } from '../../../.storybook/utils'
 
 import '../../../codebases/compdem/client-report/src/index.css';
-import { comments, conversation, extremity, math } from './testData';
 
 const mathResult = getMath()
 
@@ -28,16 +27,11 @@ AllNull.args = {
 export const Default = Template.bind({})
 Default.args = {
   ...AllNull.args,
-  conversation: conversation,
-  extremity: extremity,
-  math: math,
-  comments: comments,
+  conversation: getConversation(),
+  extremity: getExtremity(),
+  math: mathResult,
+  comments: getComments(),
   probabilities: {}, //{this.state.filteredCorrelationMatrix}
   probabilitiesTids: {}, //{this.state.filteredCorrelationTids}
-  voteColors: {
-    "agree": "rgb(46, 204, 113)",
-    "disagree": "rgb(231, 76, 60)",
-    "pass": "rgb(230,230,230)"
-  }, //{this.state.voteColors},
-
+  voteColors: getVoteColors(), //{this.state.voteColors},
 }
