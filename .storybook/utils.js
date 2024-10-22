@@ -2,6 +2,7 @@ import * as globals from "../codebases/compdem/client-report/src/components/glob
 import participationData from './data/3ntrtcehas-participation-init.json'
 import commentsData from './data/3ntrtcehas-comments.json'
 import reportsData from './data/3ntrtcehas-reports.json'
+import votesFamousData from './data/3ntrtcehas-votes-famous.json'
 
 // Simulates response data from /api/v3/math/pca2?conversation_id=3ntrtcehas
 export const getMath = () => {
@@ -33,6 +34,11 @@ export const getComments = () => {
 // Simulates response data from /api/v3/reports?report_id=r3bpnywujybyru4rkx92i
 export const getReports = () => {
   return reportsData
+}
+
+// Simulates response data from /api/v3/votes/famous?conversation_id=3ntrtcehas
+export const getVotesFamous = () => {
+  return votesFamousData
 }
 
 export const getVoteColors = () => ({

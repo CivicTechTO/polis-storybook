@@ -1,6 +1,6 @@
 /** @type { import('@storybook/react').Preview } */
 import "./style.css"
-import { getMath, getComments } from "./utils";
+import { getMath, getComments, getVotesFamous } from "./utils";
 
 // Needed at the very least for Graph component stories of UT-HAI client-deliberation.
 import jquery from 'jquery';
@@ -35,7 +35,7 @@ global.$.ajax = ajax_responses({
   '/api/v3/math/pca2': getMath(),
   '/api/v3/comments': [getComments()],
   '/api/v3/votes': [],
-  '/api/v3/votes/famous': [],
+  '/api/v3/votes/famous': getVotesFamous(),
 })
 
 const isGithubBuild = !!process.env["GITHUB_REPOSITORY"]
