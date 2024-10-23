@@ -31,6 +31,16 @@ export const getComments = () => {
   return commentsData
 }
 
+export const getUnmoderatedComments = () => {
+  return commentsData.filter(comment => comment.mod === 0)
+}
+export const getAcceptedComments = () => {
+  return commentsData.filter(comment => comment.mod === 1)
+}
+export const getRejectedComments = () => {
+  return commentsData.filter(comment => comment.mod === -1)
+}
+
 // Simulates response data from /api/v3/reports?report_id=r3bpnywujybyru4rkx92i
 export const getReports = () => {
   return reportsData
