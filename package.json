@@ -37,6 +37,7 @@
   "dependencies": {
     "@react-spring/web": "^9.7.4",
     "color": "~4.2.3",
+    "d3": "^7.9.0",
     "d3-array": "1.0.2",
     "d3-contour": "~1.1.2",
     "d3-force": "~1.2.1",
