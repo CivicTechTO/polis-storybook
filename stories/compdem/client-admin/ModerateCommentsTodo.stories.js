@@ -6,6 +6,13 @@ import ModerateCommentsTodo from "../../../codebases/compdem/client-admin/src/co
 export default {
   component: ModerateCommentsTodo,
   decorators: [withThemeUi, withRedux],
+  parameters: {
+    store: {
+      initialState: {
+        mod_comments_unmoderated: {},
+      },
+    },
+  },
 };
 
 const Template = (args) => <ModerateCommentsTodo {...args} />;
@@ -13,4 +20,4 @@ const Template = (args) => <ModerateCommentsTodo {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   unmoderated_comments: getUnmoderatedComments(),
-};
+}

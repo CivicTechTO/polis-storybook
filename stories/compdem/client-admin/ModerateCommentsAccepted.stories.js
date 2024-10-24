@@ -6,6 +6,13 @@ import { getAcceptedComments } from "../../../.storybook/utils";
 export default {
   component: ModerateCommentsAccepted,
   decorators: [withThemeUi, withRedux],
+  parameters: {
+    store: {
+      initialState: {
+        mod_comments_accepted: {},
+      },
+    },
+  },
 };
 
 const Template = (args) => <ModerateCommentsAccepted {...args} />;

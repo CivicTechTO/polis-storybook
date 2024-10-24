@@ -7,12 +7,6 @@ import configureStore from '../codebases/compdem/client-admin/src/store'
 import { MemoryRouter } from 'react-router'
 import { getAcceptedComments, getRejectedComments, getUnmoderatedComments } from './utils'
 
-const store = configureStore({
-  mod_comments_unmoderated: getUnmoderatedComments(),
-  mod_comments_accepted: getAcceptedComments(),
-  mod_comments_rejected: getRejectedComments()
-})
-
 export const withThemeUi = (Story) => (
   <ThemeProvider theme={compdemAdminTheme}>
     <Story />
@@ -25,11 +19,32 @@ export const withDelibThemeUi = (Story) => (
   </ThemeProvider>
 )
 
-export const withRedux = (Story) => (
-  <ReduxProvider store={store}>
-    <Story />
-  </ReduxProvider>
-)
+/**
+ *
+ * Provide components support for redux-store
+ * optionally passing custom initial state, and using default initial state if not passed
+ *
+ * @example
+ * export const MyComponent = () => Template.bind({})
+ * MyComponent.parameters = {
+ *   store: {
+ *     initialState: {
+ *       foo: 'bar'
+ *     },
+ *   }
+ * };
+ *
+ * Source: https://github.com/yannbf/mealdrop/blob/main/.storybook/decorators.tsx#L118
+ */
+export const withRedux = (Story, { parameters }) => {
+  // Creates a store by merging optional custom initialState
+  const store = configureStore(parameters.store?.initialState || {})
+  return (
+    <ReduxProvider store={store}>
+      <Story />
+    </ReduxProvider>
+  )
+}
 
 export const svgDecorator = (Story) => (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100">

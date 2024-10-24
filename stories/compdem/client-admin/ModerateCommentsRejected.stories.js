@@ -6,6 +6,13 @@ import { getRejectedComments } from "../../../.storybook/utils";
 export default {
   component: ModerateCommentsRejected,
   decorators: [withThemeUi, withRedux],
+  parameters: {
+    store: {
+      initialState: {
+        mod_comments_rejected: {},
+      },
+    },
+  },
 };
 
 const Template = (args) => <ModerateCommentsRejected {...args} />;
