@@ -5,7 +5,6 @@ import haiDelibTheme from '../codebases/UT-HAI/client-deliberation/src/theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import configureStore from '../codebases/compdem/client-admin/src/store'
 import { MemoryRouter } from 'react-router'
-import { getAcceptedComments, getRejectedComments, getUnmoderatedComments } from './utils'
 
 export const withThemeUi = (Story) => (
   <ThemeProvider theme={compdemAdminTheme}>
@@ -38,7 +37,7 @@ export const withDelibThemeUi = (Story) => (
  */
 export const withRedux = (Story, { parameters }) => {
   // Creates a store by merging optional custom initialState
-  const store = configureStore(parameters.store?.initialState || {})
+  const store = configureStore(parameters.store?.initialState)
   return (
     <ReduxProvider store={store}>
       <Story />
